@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 namespace ProyectoTL {
 
@@ -20,7 +20,7 @@ namespace ProyectoTL {
 			InitializeComponent();
 			colorFigura = Color::Blue;
 			//
-			//TODO: agregar código de constructor aquí
+			//TODO: agregar codigo de constructor aqui
 			//
 
 			// Deshabilitar todas las cajas de texto al inicio
@@ -50,13 +50,13 @@ namespace ProyectoTL {
 			CambiarColor->Enabled = false; // Cambiar color
 			btnEscalar->Enabled = false; // Homotecia/Escalar
 
-			// Configurar validación numérica para todas las cajas de texto
+			// Configurar validacion numerica para todas las cajas de texto
 			ConfigurarValidacionNumerica();
 		}
-		// Método para configurar validación numérica
+		// Metodo para configurar validacion numerica
 		void ConfigurarValidacionNumerica()
 		{
-			// Agregar event handlers para validación de solo números
+			// Agregar event handlers para validacion de solo numeros
 			btn_punto1X->KeyPress += gcnew KeyPressEventHandler(this, &MyForm::textBox_KeyPress);
 			btn_punto1Y->KeyPress += gcnew KeyPressEventHandler(this, &MyForm::textBox_KeyPress);
 			btn_punto2X->KeyPress += gcnew KeyPressEventHandler(this, &MyForm::textBox_KeyPress);
@@ -69,19 +69,19 @@ namespace ProyectoTL {
 			grado_ubicacion2->KeyPress += gcnew KeyPressEventHandler(this, &MyForm::textBox_KeyPress);
 			caja_Grados->KeyPress += gcnew KeyPressEventHandler(this, &MyForm::textBox_KeyPress);
 			
-			// Agregar validación para campos de homotecia/escala
+			// Agregar validacion para campos de homotecia/escala
 			txtVEscala->KeyPress += gcnew KeyPressEventHandler(this, &MyForm::textBox_KeyPress);
 			txtXEscala->KeyPress += gcnew KeyPressEventHandler(this, &MyForm::textBox_KeyPress);
 			txtYEscala->KeyPress += gcnew KeyPressEventHandler(this, &MyForm::textBox_KeyPress);
 		}
 
-		// Event handler para validación de entrada numérica
+		// Event handler para validacion de entrada numerica
 		void textBox_KeyPress(Object^ sender, KeyPressEventArgs^ e)
 		{
-			// Permitir números, signo negativo, punto decimal y teclas de control
+			// Permitir numeros, signo negativo, punto decimal y teclas de control
 			if (!Char::IsDigit(e->KeyChar) && e->KeyChar != '-' && e->KeyChar != '.' && !Char::IsControl(e->KeyChar))
 			{
-				e->Handled = true; // Rechazar el carácter
+				e->Handled = true; // Rechazar el caracter
 			}
 
 			// Permitir signo negativo solo al inicio
@@ -105,7 +105,7 @@ namespace ProyectoTL {
 			}
 		}
 
-		// Método para ordenar puntos en sentido antihorario (para formar polígonos correctos)
+		// Metodo para ordenar puntos en sentido antihorario (para formar poligonos correctos)
 		array<Point>^ OrdenarPuntosPoligono(array<Point>^ puntos)
 		{
 			if (puntos->Length <= 2) return puntos;
@@ -119,7 +119,7 @@ namespace ProyectoTL {
 			cx /= puntos->Length;
 			cy /= puntos->Length;
 
-			// Crear una lista de puntos con sus ángulos
+			// Crear una lista de puntos con sus angulos
 			System::Collections::Generic::List<System::Tuple<double, Point>^>^ puntosConAngulo = 
 				gcnew System::Collections::Generic::List<System::Tuple<double, Point>^>();
 
@@ -150,34 +150,34 @@ namespace ProyectoTL {
 		}
 
 
-		// Método para validar que los campos requeridos estén llenos
+		// Metodo para validar que los campos requeridos esten llenos
 		bool ValidarCamposRequeridos()
 		{
 			if (cajaFormas->SelectedIndex == -1)
 			{
-				MessageBox::Show("Por favor seleccione el tipo de figura.", "Validación", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+				MessageBox::Show("Por favor seleccione el tipo de figura.", "Validacion", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 				return false;
 			}
 
-			// Validar campos según el tipo de figura
-			if (cajaFormas->SelectedItem->ToString() == "Triángulo")
+			// Validar campos segun el tipo de figura
+			if (cajaFormas->SelectedItem->ToString() == "Triangulo")
 			{
 				if (String::IsNullOrEmpty(btn_punto1X->Text) || String::IsNullOrEmpty(btn_punto1Y->Text) ||
 					String::IsNullOrEmpty(btn_punto2X->Text) || String::IsNullOrEmpty(btn_punto2Y->Text) ||
 					String::IsNullOrEmpty(btn_punto3X->Text) || String::IsNullOrEmpty(btn_punto3Y->Text))
 				{
-					MessageBox::Show("Por favor complete todas las coordenadas para el triángulo.", "Validación", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+					MessageBox::Show("Por favor complete todas las coordenadas para el triangulo.", "Validacion", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 					return false;
 				}
 			}
-			else if (cajaFormas->SelectedItem->ToString() == "Cuadrilátero")
+			else if (cajaFormas->SelectedItem->ToString() == "Cuadrilatero")
 			{
 				if (String::IsNullOrEmpty(btn_punto1X->Text) || String::IsNullOrEmpty(btn_punto1Y->Text) ||
 					String::IsNullOrEmpty(btn_punto2X->Text) || String::IsNullOrEmpty(btn_punto2Y->Text) ||
 					String::IsNullOrEmpty(btn_punto3X->Text) || String::IsNullOrEmpty(btn_punto3Y->Text) ||
 					String::IsNullOrEmpty(btn_punto4X->Text) || String::IsNullOrEmpty(btn_punto4Y->Text))
 				{
-					MessageBox::Show("Por favor complete todas las coordenadas para el cuadrilátero.", "Validación", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+					MessageBox::Show("Por favor complete todas las coordenadas para el cuadrilatero.", "Validacion", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 					return false;
 				}
 			}
@@ -185,12 +185,12 @@ namespace ProyectoTL {
 			return true;
 		}
 
-		// Método para validar campos de rotación
+		// Metodo para validar campos de rotacion
 		bool ValidarCamposRotacion()
 		{
 			if (String::IsNullOrEmpty(caja_Grados->Text) || String::IsNullOrEmpty(grado_ubicacion1->Text) || String::IsNullOrEmpty(grado_ubicacion2->Text))
 			{
-				MessageBox::Show("Por favor complete todos los campos para la rotación (grados y ubicación).", "Validación", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+				MessageBox::Show("Por favor complete todos los campos para la rotacion (grados y ubicacion).", "Validacion", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 				return false;
 			}
 			return true;
@@ -230,7 +230,7 @@ namespace ProyectoTL {
 		   Color colorFigura;
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se estén usando.
+		/// Limpiar los recursos que se esten usando.
 		/// </summary>
 		~MyForm()
 		{
@@ -271,8 +271,8 @@ namespace ProyectoTL {
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
+		/// Metodo necesario para admitir el Diseñador. No se puede modificar
+		/// el contenido de este metodo con el editor de codigo.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -328,19 +328,19 @@ namespace ProyectoTL {
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(31, 31);
+			this->pictureBox1->Location = System::Drawing::Point(25, 20);
 			this->pictureBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(569, 378);
+			this->pictureBox1->Size = System::Drawing::Size(800, 500);
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
 			// 
 			// btn_demo
 			// 
-			this->btn_demo->Location = System::Drawing::Point(525, 593);
+			this->btn_demo->Location = System::Drawing::Point(270, 655);
 			this->btn_demo->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_demo->Name = L"btn_demo";
-			this->btn_demo->Size = System::Drawing::Size(75, 23);
+			this->btn_demo->Size = System::Drawing::Size(100, 35);
 			this->btn_demo->TabIndex = 1;
 			this->btn_demo->Text = L"Demo";
 			this->btn_demo->UseVisualStyleBackColor = true;
@@ -348,7 +348,7 @@ namespace ProyectoTL {
 			// 
 			// btn_punto1X
 			// 
-			this->btn_punto1X->Location = System::Drawing::Point(273, 453);
+			this->btn_punto1X->Location = System::Drawing::Point(105, 575);
 			this->btn_punto1X->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_punto1X->Name = L"btn_punto1X";
 			this->btn_punto1X->Size = System::Drawing::Size(100, 22);
@@ -356,7 +356,7 @@ namespace ProyectoTL {
 			// 
 			// btn_punto1Y
 			// 
-			this->btn_punto1Y->Location = System::Drawing::Point(403, 453);
+			this->btn_punto1Y->Location = System::Drawing::Point(245, 575);
 			this->btn_punto1Y->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_punto1Y->Name = L"btn_punto1Y";
 			this->btn_punto1Y->Size = System::Drawing::Size(100, 22);
@@ -364,7 +364,7 @@ namespace ProyectoTL {
 			// 
 			// btn_punto2X
 			// 
-			this->btn_punto2X->Location = System::Drawing::Point(273, 501);
+			this->btn_punto2X->Location = System::Drawing::Point(105, 610);
 			this->btn_punto2X->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_punto2X->Name = L"btn_punto2X";
 			this->btn_punto2X->Size = System::Drawing::Size(100, 22);
@@ -372,7 +372,7 @@ namespace ProyectoTL {
 			// 
 			// btn_punto2Y
 			// 
-			this->btn_punto2Y->Location = System::Drawing::Point(403, 501);
+			this->btn_punto2Y->Location = System::Drawing::Point(245, 610);
 			this->btn_punto2Y->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_punto2Y->Name = L"btn_punto2Y";
 			this->btn_punto2Y->Size = System::Drawing::Size(100, 22);
@@ -380,7 +380,7 @@ namespace ProyectoTL {
 			// 
 			// btn_punto3X
 			// 
-			this->btn_punto3X->Location = System::Drawing::Point(273, 546);
+			this->btn_punto3X->Location = System::Drawing::Point(505, 575);
 			this->btn_punto3X->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_punto3X->Name = L"btn_punto3X";
 			this->btn_punto3X->Size = System::Drawing::Size(100, 22);
@@ -388,7 +388,7 @@ namespace ProyectoTL {
 			// 
 			// btn_punto3Y
 			// 
-			this->btn_punto3Y->Location = System::Drawing::Point(403, 546);
+			this->btn_punto3Y->Location = System::Drawing::Point(645, 575);
 			this->btn_punto3Y->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_punto3Y->Name = L"btn_punto3Y";
 			this->btn_punto3Y->Size = System::Drawing::Size(100, 22);
@@ -397,36 +397,36 @@ namespace ProyectoTL {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(249, 433);
+			this->label1->Location = System::Drawing::Point(30, 578);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(51, 16);
 			this->label1->TabIndex = 8;
-			this->label1->Text = L"Punto 1";
+			this->label1->Text = L"Punto 1:";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(249, 482);
+			this->label2->Location = System::Drawing::Point(30, 613);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(51, 16);
 			this->label2->TabIndex = 9;
-			this->label2->Text = L"Punto 2";
+			this->label2->Text = L"Punto 2:";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(249, 528);
+			this->label3->Location = System::Drawing::Point(430, 578);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(51, 16);
 			this->label3->TabIndex = 10;
-			this->label3->Text = L"Punto 3";
+			this->label3->Text = L"Punto 3:";
 			// 
 			// btn_Dibujar
 			// 
-			this->btn_Dibujar->Location = System::Drawing::Point(525, 448);
+			this->btn_Dibujar->Location = System::Drawing::Point(30, 655);
 			this->btn_Dibujar->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_Dibujar->Name = L"btn_Dibujar";
-			this->btn_Dibujar->Size = System::Drawing::Size(75, 47);
+			this->btn_Dibujar->Size = System::Drawing::Size(100, 35);
 			this->btn_Dibujar->TabIndex = 11;
 			this->btn_Dibujar->Text = L"Dibujar";
 			this->btn_Dibujar->UseVisualStyleBackColor = true;
@@ -434,10 +434,10 @@ namespace ProyectoTL {
 			// 
 			// btn_Borrar
 			// 
-			this->btn_Borrar->Location = System::Drawing::Point(525, 500);
+			this->btn_Borrar->Location = System::Drawing::Point(150, 655);
 			this->btn_Borrar->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_Borrar->Name = L"btn_Borrar";
-			this->btn_Borrar->Size = System::Drawing::Size(75, 42);
+			this->btn_Borrar->Size = System::Drawing::Size(100, 35);
 			this->btn_Borrar->TabIndex = 12;
 			this->btn_Borrar->Text = L"Borrar Todo";
 			this->btn_Borrar->UseVisualStyleBackColor = true;
@@ -446,15 +446,15 @@ namespace ProyectoTL {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(249, 574);
+			this->label4->Location = System::Drawing::Point(430, 613);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(51, 16);
 			this->label4->TabIndex = 13;
-			this->label4->Text = L"Punto 4";
+			this->label4->Text = L"Punto 4:";
 			// 
 			// btn_punto4X
 			// 
-			this->btn_punto4X->Location = System::Drawing::Point(273, 592);
+			this->btn_punto4X->Location = System::Drawing::Point(505, 610);
 			this->btn_punto4X->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_punto4X->Name = L"btn_punto4X";
 			this->btn_punto4X->Size = System::Drawing::Size(100, 22);
@@ -462,7 +462,7 @@ namespace ProyectoTL {
 			// 
 			// btn_punto4Y
 			// 
-			this->btn_punto4Y->Location = System::Drawing::Point(403, 592);
+			this->btn_punto4Y->Location = System::Drawing::Point(645, 610);
 			this->btn_punto4Y->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_punto4Y->Name = L"btn_punto4Y";
 			this->btn_punto4Y->Size = System::Drawing::Size(100, 22);
@@ -471,36 +471,36 @@ namespace ProyectoTL {
 			// cajaFormas
 			// 
 			this->cajaFormas->FormattingEnabled = true;
-			this->cajaFormas->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Triángulo", L"Cuadrilátero" });
-			this->cajaFormas->Location = System::Drawing::Point(31, 430);
+			this->cajaFormas->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Triangulo", L"Cuadrilatero" });
+			this->cajaFormas->Location = System::Drawing::Point(140, 538);
 			this->cajaFormas->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->cajaFormas->Name = L"cajaFormas";
-			this->cajaFormas->Size = System::Drawing::Size(121, 24);
+			this->cajaFormas->Size = System::Drawing::Size(200, 24);
 			this->cajaFormas->TabIndex = 16;
 			this->cajaFormas->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::cajaFormas_SelectedIndexChanged);
 			// 
 			// caja_Grados
 			// 
-			this->caja_Grados->Location = System::Drawing::Point(95, 484);
+			this->caja_Grados->Location = System::Drawing::Point(100, 733);
 			this->caja_Grados->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->caja_Grados->Name = L"caja_Grados";
-			this->caja_Grados->Size = System::Drawing::Size(100, 22);
+			this->caja_Grados->Size = System::Drawing::Size(80, 22);
 			this->caja_Grados->TabIndex = 17;
 			// 
 			// grado_ubicacion1
 			// 
-			this->grado_ubicacion1->Location = System::Drawing::Point(95, 542);
+			this->grado_ubicacion1->Location = System::Drawing::Point(270, 733);
 			this->grado_ubicacion1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->grado_ubicacion1->Name = L"grado_ubicacion1";
-			this->grado_ubicacion1->Size = System::Drawing::Size(100, 22);
+			this->grado_ubicacion1->Size = System::Drawing::Size(80, 22);
 			this->grado_ubicacion1->TabIndex = 18;
 			// 
 			// btn_rotar
 			// 
-			this->btn_rotar->Location = System::Drawing::Point(109, 612);
+			this->btn_rotar->Location = System::Drawing::Point(540, 730);
 			this->btn_rotar->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_rotar->Name = L"btn_rotar";
-			this->btn_rotar->Size = System::Drawing::Size(75, 23);
+			this->btn_rotar->Size = System::Drawing::Size(90, 30);
 			this->btn_rotar->TabIndex = 19;
 			this->btn_rotar->Text = L"Rotar";
 			this->btn_rotar->UseVisualStyleBackColor = true;
@@ -508,18 +508,18 @@ namespace ProyectoTL {
 			// 
 			// grado_ubicacion2
 			// 
-			this->grado_ubicacion2->Location = System::Drawing::Point(95, 574);
+			this->grado_ubicacion2->Location = System::Drawing::Point(440, 733);
 			this->grado_ubicacion2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->grado_ubicacion2->Name = L"grado_ubicacion2";
-			this->grado_ubicacion2->Size = System::Drawing::Size(100, 22);
+			this->grado_ubicacion2->Size = System::Drawing::Size(80, 22);
 			this->grado_ubicacion2->TabIndex = 20;
 			// 
 			// btn_ejeX
 			// 
-			this->btn_ejeX->Location = System::Drawing::Point(253, 638);
+			this->btn_ejeX->Location = System::Drawing::Point(150, 775);
 			this->btn_ejeX->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_ejeX->Name = L"btn_ejeX";
-			this->btn_ejeX->Size = System::Drawing::Size(75, 23);
+			this->btn_ejeX->Size = System::Drawing::Size(80, 30);
 			this->btn_ejeX->TabIndex = 21;
 			this->btn_ejeX->Text = L"En eje X";
 			this->btn_ejeX->UseVisualStyleBackColor = true;
@@ -527,10 +527,10 @@ namespace ProyectoTL {
 			// 
 			// btn_ejeY
 			// 
-			this->btn_ejeY->Location = System::Drawing::Point(333, 638);
+			this->btn_ejeY->Location = System::Drawing::Point(240, 775);
 			this->btn_ejeY->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_ejeY->Name = L"btn_ejeY";
-			this->btn_ejeY->Size = System::Drawing::Size(75, 23);
+			this->btn_ejeY->Size = System::Drawing::Size(80, 30);
 			this->btn_ejeY->TabIndex = 22;
 			this->btn_ejeY->Text = L"En eje Y";
 			this->btn_ejeY->UseVisualStyleBackColor = true;
@@ -538,10 +538,10 @@ namespace ProyectoTL {
 			// 
 			// btn_ejeZ
 			// 
-			this->btn_ejeZ->Location = System::Drawing::Point(413, 638);
+			this->btn_ejeZ->Location = System::Drawing::Point(330, 775);
 			this->btn_ejeZ->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_ejeZ->Name = L"btn_ejeZ";
-			this->btn_ejeZ->Size = System::Drawing::Size(75, 23);
+			this->btn_ejeZ->Size = System::Drawing::Size(80, 30);
 			this->btn_ejeZ->TabIndex = 23;
 			this->btn_ejeZ->Text = L"Origen";
 			this->btn_ejeZ->UseVisualStyleBackColor = true;
@@ -550,144 +550,144 @@ namespace ProyectoTL {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(31, 411);
+			this->label5->Location = System::Drawing::Point(30, 540);
 			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(168, 16);
+			this->label5->Size = System::Drawing::Size(98, 16);
 			this->label5->TabIndex = 24;
-			this->label5->Text = L"Selecciona Tipo De Figura";
+			this->label5->Text = L"Tipo de Figura:";
 			this->label5->Click += gcnew System::EventHandler(this, &MyForm::label5_Click);
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(31, 464);
+			this->label6->Location = System::Drawing::Point(30, 710);
 			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(61, 16);
+			this->label6->Size = System::Drawing::Size(77, 16);
 			this->label6->TabIndex = 25;
-			this->label6->Text = L"Rotacion";
+			this->label6->Text = L"ROTACION";
 			this->label6->Click += gcnew System::EventHandler(this, &MyForm::label6_Click);
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(249, 619);
+			this->label7->Location = System::Drawing::Point(30, 780);
 			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(50, 16);
+			this->label7->Size = System::Drawing::Size(99, 16);
 			this->label7->TabIndex = 26;
-			this->label7->Text = L"Espejo";
+			this->label7->Text = L"REFLEXIONES";
 			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(249, 411);
+			this->label8->Location = System::Drawing::Point(370, 735);
 			this->label8->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(139, 16);
+			this->label8->Size = System::Drawing::Size(61, 16);
 			this->label8->TabIndex = 27;
-			this->label8->Text = L"Selecciona los puntos";
+			this->label8->Text = L"Centro Y:";
 			this->label8->Click += gcnew System::EventHandler(this, &MyForm::label8_Click);
 			// 
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(249, 457);
+			this->label9->Location = System::Drawing::Point(85, 578);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(15, 16);
 			this->label9->TabIndex = 28;
-			this->label9->Text = L"X";
+			this->label9->Text = L"X:";
 			// 
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(379, 457);
+			this->label10->Location = System::Drawing::Point(225, 578);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(16, 16);
 			this->label10->TabIndex = 29;
-			this->label10->Text = L"Y";
+			this->label10->Text = L"Y:";
 			// 
 			// label11
 			// 
 			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(380, 505);
+			this->label11->Location = System::Drawing::Point(225, 613);
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(16, 16);
 			this->label11->TabIndex = 31;
-			this->label11->Text = L"Y";
+			this->label11->Text = L"Y:";
 			// 
 			// label12
 			// 
 			this->label12->AutoSize = true;
-			this->label12->Location = System::Drawing::Point(251, 505);
+			this->label12->Location = System::Drawing::Point(85, 613);
 			this->label12->Name = L"label12";
 			this->label12->Size = System::Drawing::Size(15, 16);
 			this->label12->TabIndex = 30;
-			this->label12->Text = L"X";
+			this->label12->Text = L"X:";
 			// 
 			// label13
 			// 
 			this->label13->AutoSize = true;
-			this->label13->Location = System::Drawing::Point(380, 550);
+			this->label13->Location = System::Drawing::Point(625, 578);
 			this->label13->Name = L"label13";
 			this->label13->Size = System::Drawing::Size(16, 16);
 			this->label13->TabIndex = 33;
-			this->label13->Text = L"Y";
+			this->label13->Text = L"Y:";
 			// 
 			// label14
 			// 
 			this->label14->AutoSize = true;
-			this->label14->Location = System::Drawing::Point(251, 550);
+			this->label14->Location = System::Drawing::Point(485, 578);
 			this->label14->Name = L"label14";
 			this->label14->Size = System::Drawing::Size(15, 16);
 			this->label14->TabIndex = 32;
-			this->label14->Text = L"X";
+			this->label14->Text = L"X:";
 			// 
 			// label15
 			// 
 			this->label15->AutoSize = true;
-			this->label15->Location = System::Drawing::Point(380, 596);
+			this->label15->Location = System::Drawing::Point(485, 613);
 			this->label15->Name = L"label15";
 			this->label15->Size = System::Drawing::Size(16, 16);
 			this->label15->TabIndex = 35;
-			this->label15->Text = L"Y";
+			this->label15->Text = L"X:";
 			// 
 			// label16
 			// 
 			this->label16->AutoSize = true;
-			this->label16->Location = System::Drawing::Point(251, 596);
+			this->label16->Location = System::Drawing::Point(625, 613);
 			this->label16->Name = L"label16";
 			this->label16->Size = System::Drawing::Size(15, 16);
 			this->label16->TabIndex = 34;
-			this->label16->Text = L"X";
+			this->label16->Text = L"Y:";
 			// 
 			// label17
 			// 
 			this->label17->AutoSize = true;
-			this->label17->Location = System::Drawing::Point(33, 487);
+			this->label17->Location = System::Drawing::Point(30, 735);
 			this->label17->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label17->Name = L"label17";
-			this->label17->Size = System::Drawing::Size(52, 16);
+			this->label17->Size = System::Drawing::Size(55, 16);
 			this->label17->TabIndex = 36;
-			this->label17->Text = L"Grados";
+			this->label17->Text = L"Grados:";
 			// 
 			// label18
 			// 
 			this->label18->AutoSize = true;
-			this->label18->Location = System::Drawing::Point(33, 517);
+			this->label18->Location = System::Drawing::Point(200, 735);
 			this->label18->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label18->Name = L"label18";
-			this->label18->Size = System::Drawing::Size(68, 16);
+			this->label18->Size = System::Drawing::Size(60, 16);
 			this->label18->TabIndex = 37;
-			this->label18->Text = L"Ubicacion";
+			this->label18->Text = L"Centro X:";
 			// 
 			// CambiarColor
 			// 
-			this->CambiarColor->Location = System::Drawing::Point(525, 546);
+			this->CambiarColor->Location = System::Drawing::Point(620, 845);
 			this->CambiarColor->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->CambiarColor->Name = L"CambiarColor";
-			this->CambiarColor->Size = System::Drawing::Size(75, 42);
+			this->CambiarColor->Size = System::Drawing::Size(100, 30);
 			this->CambiarColor->TabIndex = 38;
 			this->CambiarColor->Text = L"Cambiar color";
 			this->CambiarColor->UseVisualStyleBackColor = true;
@@ -696,65 +696,65 @@ namespace ProyectoTL {
 			// label19
 			// 
 			this->label19->AutoSize = true;
-			this->label19->Location = System::Drawing::Point(28, 679);
+			this->label19->Location = System::Drawing::Point(30, 825);
 			this->label19->Name = L"label19";
-			this->label19->Size = System::Drawing::Size(73, 16);
+			this->label19->Size = System::Drawing::Size(149, 16);
 			this->label19->TabIndex = 39;
-			this->label19->Text = L"Homotecia";
+			this->label19->Text = L"HOMOTECIA / ESCALA";
 			// 
 			// label20
 			// 
 			this->label20->AutoSize = true;
-			this->label20->Location = System::Drawing::Point(28, 729);
+			this->label20->Location = System::Drawing::Point(190, 850);
 			this->label20->Name = L"label20";
-			this->label20->Size = System::Drawing::Size(18, 16);
+			this->label20->Size = System::Drawing::Size(60, 16);
 			this->label20->TabIndex = 40;
-			this->label20->Text = L"X:";
+			this->label20->Text = L"Centro X:";
 			// 
 			// label21
 			// 
 			this->label21->AutoSize = true;
-			this->label21->Location = System::Drawing::Point(180, 729);
+			this->label21->Location = System::Drawing::Point(350, 850);
 			this->label21->Name = L"label21";
-			this->label21->Size = System::Drawing::Size(19, 16);
+			this->label21->Size = System::Drawing::Size(61, 16);
 			this->label21->TabIndex = 41;
-			this->label21->Text = L"Y:";
+			this->label21->Text = L"Centro Y:";
 			// 
 			// label22
 			// 
 			this->label22->AutoSize = true;
-			this->label22->Location = System::Drawing::Point(28, 701);
+			this->label22->Location = System::Drawing::Point(30, 850);
 			this->label22->Name = L"label22";
-			this->label22->Size = System::Drawing::Size(111, 16);
+			this->label22->Size = System::Drawing::Size(48, 16);
 			this->label22->TabIndex = 42;
-			this->label22->Text = L"Factor de escala:";
+			this->label22->Text = L"Factor:";
 			// 
 			// txtVEscala
 			// 
-			this->txtVEscala->Location = System::Drawing::Point(145, 698);
+			this->txtVEscala->Location = System::Drawing::Point(100, 848);
 			this->txtVEscala->Name = L"txtVEscala";
-			this->txtVEscala->Size = System::Drawing::Size(100, 22);
+			this->txtVEscala->Size = System::Drawing::Size(70, 22);
 			this->txtVEscala->TabIndex = 43;
 			// 
 			// txtXEscala
 			// 
-			this->txtXEscala->Location = System::Drawing::Point(52, 726);
+			this->txtXEscala->Location = System::Drawing::Point(260, 848);
 			this->txtXEscala->Name = L"txtXEscala";
-			this->txtXEscala->Size = System::Drawing::Size(100, 22);
+			this->txtXEscala->Size = System::Drawing::Size(70, 22);
 			this->txtXEscala->TabIndex = 44;
 			// 
 			// txtYEscala
 			// 
-			this->txtYEscala->Location = System::Drawing::Point(205, 726);
+			this->txtYEscala->Location = System::Drawing::Point(420, 848);
 			this->txtYEscala->Name = L"txtYEscala";
-			this->txtYEscala->Size = System::Drawing::Size(100, 22);
+			this->txtYEscala->Size = System::Drawing::Size(70, 22);
 			this->txtYEscala->TabIndex = 45;
 			// 
 			// btnEscalar
 			// 
-			this->btnEscalar->Location = System::Drawing::Point(333, 701);
+			this->btnEscalar->Location = System::Drawing::Point(510, 845);
 			this->btnEscalar->Name = L"btnEscalar";
-			this->btnEscalar->Size = System::Drawing::Size(75, 23);
+			this->btnEscalar->Size = System::Drawing::Size(90, 30);
 			this->btnEscalar->TabIndex = 46;
 			this->btnEscalar->Text = L"Escalar";
 			this->btnEscalar->UseVisualStyleBackColor = true;
@@ -764,7 +764,7 @@ namespace ProyectoTL {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(623, 776);
+			this->ClientSize = System::Drawing::Size(850, 1000);
 			this->Controls->Add(this->btnEscalar);
 			this->Controls->Add(this->txtYEscala);
 			this->Controls->Add(this->txtXEscala);
@@ -833,10 +833,10 @@ namespace ProyectoTL {
 				puntosPantalla[i] = Point(x, y);
 			}
 
-			// Dibujar polígono
+			// Dibujar poligono
 			g->DrawPolygon(figura, puntosPantalla);
 
-			// Dibujar vértices
+			// Dibujar vertices
 			for each (Point p in puntosPantalla) {
 				g->FillEllipse(b, p.X - 3, p.Y - 3, 6, 6);
 			}
@@ -846,7 +846,7 @@ namespace ProyectoTL {
 		Pen^ eje = gcnew Pen(Color::Black, 2);
 		Pen^ figura = gcnew Pen(colorFigura, 2);
 
-		// Limpiar el área
+		// Limpiar el area
 		g->Clear(Color::White);
 
 		// Dibujar ejes (centrados en el medio del pictureBox)
@@ -856,8 +856,8 @@ namespace ProyectoTL {
 		g->DrawLine(eje, 0, cy, pictureBox1->Width, cy); // Eje X
 		g->DrawLine(eje, cx, 0, cx, pictureBox1->Height); // Eje Y
 
-		// Dibujar un triángulo de demostración
-		// Definir puntos en el sistema de coordenadas lógico
+		// Dibujar un triangulo de demostracion
+		// Definir puntos en el sistema de coordenadas logico
 		array<Point>^ puntosDemo = {
 			Point(50, 80),    // Punto A
 			Point(100, 30),  // Punto B
@@ -867,7 +867,7 @@ namespace ProyectoTL {
 		// Guardar la figura demo en figuraOriginal para que las transformaciones funcionen
 		figuraOriginal = puntosDemo;
 
-		// Dibujar la figura usando el método estándar
+		// Dibujar la figura usando el metodo estandar
 		DibujarFigura(g, cx, cy, puntosDemo);
 
 		// Habilitar las transformaciones para la figura demo
@@ -884,16 +884,16 @@ namespace ProyectoTL {
 		txtYEscala->Enabled = true;
 		btnEscalar->Enabled = true;
 
-		// Actualizar el selector de formas para reflejar que es un triángulo
-		cajaFormas->SelectedIndex = 0; // Asumiendo que triángulo es el índice 0
+		// Actualizar el selector de formas para reflejar que es un triangulo
+		cajaFormas->SelectedIndex = 0; // Asumiendo que triangulo es el indice 0
 
 		// Llenar los campos de texto con las coordenadas de la demo (opcional, para que el usuario vea los valores)
 		btn_punto1X->Text = "50";
-		btn_punto1Y->Text = "50";
+		btn_punto1Y->Text = "80";
 		btn_punto2X->Text = "100";
-		btn_punto2Y->Text = "-30";
+		btn_punto2Y->Text = "30";
 		btn_punto3X->Text = "20";
-		btn_punto3Y->Text = "-40";
+		btn_punto3Y->Text = "20";
 	}
 	private: System::Void btn_Dibujar_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (!ValidarCamposRequeridos()) {
@@ -901,7 +901,7 @@ namespace ProyectoTL {
 		}
 
 		try {
-			// Crear el gráfico y limpiar
+			// Crear el grafico y limpiar
 			Graphics^ g = pictureBox1->CreateGraphics();
 			g->Clear(Color::White);
 
@@ -914,7 +914,7 @@ namespace ProyectoTL {
 			g->DrawLine(eje, 0, cy, pictureBox1->Width, cy);  // Eje X
 			g->DrawLine(eje, cx, 0, cx, pictureBox1->Height); // Eje Y
 
-			// Leer coordenadas (conversión a enteros)
+			// Leer coordenadas (conversion a enteros)
 			int Ax = Convert::ToInt32(btn_punto1X->Text);
 			int Ay = Convert::ToInt32(btn_punto1Y->Text);
 			int Bx = Convert::ToInt32(btn_punto2X->Text);
@@ -922,22 +922,22 @@ namespace ProyectoTL {
 			int Cx = Convert::ToInt32(btn_punto3X->Text);
 			int Cy = Convert::ToInt32(btn_punto3Y->Text);
 
-			// Verificar selección
-			if (cajaFormas->SelectedItem->ToString() == "Triángulo") {
+			// Verificar seleccion
+			if (cajaFormas->SelectedItem->ToString() == "Triangulo") {
 				// Definir arreglo de 3 puntos
 				array<Point>^ triangulo = {
 					Point(Ax, Ay),
 					Point(Bx, By),
 					Point(Cx, Cy)
 				};
-				// Ordenar puntos para formar un polígono correcto
+				// Ordenar puntos para formar un poligono correcto
 				triangulo = OrdenarPuntosPoligono(triangulo);
 				figuraOriginal = triangulo;
-				// Dibujar el triángulo
+				// Dibujar el triangulo
 				DibujarFigura(g, cx, cy, triangulo);
 			}
-			else if (cajaFormas->SelectedItem->ToString() == "Cuadrilátero") {
-				// Leer también punto D
+			else if (cajaFormas->SelectedItem->ToString() == "Cuadrilatero") {
+				// Leer tambien punto D
 				int Dx = Convert::ToInt32(btn_punto4X->Text);
 				int Dy = Convert::ToInt32(btn_punto4Y->Text);
 
@@ -948,32 +948,32 @@ namespace ProyectoTL {
 					Point(Cx, Cy),
 					Point(Dx, Dy)
 				};
-				// Ordenar puntos para formar un polígono correcto
+				// Ordenar puntos para formar un poligono correcto
 				cuadrilatero = OrdenarPuntosPoligono(cuadrilatero);
 				figuraOriginal = cuadrilatero;
-				// Dibujar el cuadrilátero
+				// Dibujar el cuadrilatero
 				DibujarFigura(g, cx, cy, cuadrilatero);
 			}
-			// Habilitar botones de transformación después de dibujar exitosamente
+			// Habilitar botones de transformacion despues de dibujar exitosamente
 			btn_rotar->Enabled = true; // Rotar
 			btn_ejeX->Enabled = true; // Espejo X
 			btn_ejeY->Enabled = true; // Espejo Y
 			btn_ejeZ->Enabled = true; // Espejo Z
 			CambiarColor->Enabled = true; // Cambiar color
 
-			// Habilitar campos de rotación
+			// Habilitar campos de rotacion
 			caja_Grados->Enabled = true;
 			grado_ubicacion1->Enabled = true;
 			grado_ubicacion2->Enabled = true;
 
-			// Habilitar campos y botón de homotecia/escala
+			// Habilitar campos y boton de homotecia/escala
 			txtVEscala->Enabled = true;
 			txtXEscala->Enabled = true;
 			txtYEscala->Enabled = true;
 			btnEscalar->Enabled = true;
 		}
 		catch (Exception^ ex) {
-			MessageBox::Show("Error: Verifique que todas las coordenadas sean números válidos.", "Error de entrada", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			MessageBox::Show("Error: Verifique que todas las coordenadas sean numeros validos.", "Error de entrada", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		}
 		
 
@@ -1005,7 +1005,7 @@ private: System::Void btn_Borrar_Click(System::Object^ sender, System::EventArgs
 	// NO deshabilitar campos de coordenadas - mantenerlos habilitados
 	// para poder redibujar inmediatamente
 
-	// Deshabilitar campos de rotación (hasta que se dibuje nuevamente)
+	// Deshabilitar campos de rotacion (hasta que se dibuje nuevamente)
 	caja_Grados->Enabled = false;
 	grado_ubicacion1->Enabled = false;
 	grado_ubicacion2->Enabled = false;
@@ -1023,13 +1023,13 @@ private: System::Void btn_Borrar_Click(System::Object^ sender, System::EventArgs
 	CambiarColor->Enabled = false;
 	btnEscalar->Enabled = false;
 
-	// Mantener habilitado el botón Dibujar para poder redibujar
+	// Mantener habilitado el boton Dibujar para poder redibujar
 	// btn_Dibujar sigue habilitado si hay una forma seleccionada
 }
 private: System::Void cajaFormas_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	if (cajaFormas->SelectedIndex != -1)
 	{
-		// Habilitar campos básicos de coordenadas
+		// Habilitar campos basicos de coordenadas
 		btn_punto1X->Enabled = true;
 		btn_punto1Y->Enabled = true;
 		btn_punto2X->Enabled = true;
@@ -1037,41 +1037,41 @@ private: System::Void cajaFormas_SelectedIndexChanged(System::Object^ sender, Sy
 		btn_punto3X->Enabled = true;
 		btn_punto3Y->Enabled = true;
 
-		// NO habilitar campos de rotación aquí
-		// Se habilitarán solo después de dibujar la figura
+		// NO habilitar campos de rotacion aqui
+		// Se habilitaran solo despues de dibujar la figura
 		// caja_Grados->Enabled = true;
 		// grado_ubicacion1->Enabled = true;
 		// grado_ubicacion2->Enabled = true;
 
-		// Habilitar botón de dibujar
+		// Habilitar boton de dibujar
 		btn_Dibujar->Enabled = true;
 
-		if ( cajaFormas->SelectedItem->ToString() == "Triángulo") {
+		if ( cajaFormas->SelectedItem->ToString() == "Triangulo") {
 			btn_punto4X->Enabled = false;
 			btn_punto4Y->Enabled = false;
 			// Limpiar los campos del cuarto punto
 			btn_punto4X->Text = "";
 			btn_punto4Y->Text = "";
 		}
-		else if (cajaFormas->SelectedItem->ToString() == "Cuadrilátero") {
+		else if (cajaFormas->SelectedItem->ToString() == "Cuadrilatero") {
 			btn_punto4X->Enabled = true;
 			btn_punto4Y->Enabled = true;
 		}
 	}
 	else
 	{
-		// Si no hay selección, deshabilitar todo
+		// Si no hay seleccion, deshabilitar todo
 
 	}
 }
 private: System::Void btn_rotar_Click(System::Object^ sender, System::EventArgs^ e) {
 	// Validar que haya una figura dibujada
 	if (figuraOriginal == nullptr) {
-		MessageBox::Show("Primero debe dibujar una figura.", "Validación", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+		MessageBox::Show("Primero debe dibujar una figura.", "Validacion", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 		return;
 	}
 
-	// Validar campos de rotación
+	// Validar campos de rotacion
 	if (!ValidarCamposRotacion()) {
 		return;
 	}
@@ -1088,7 +1088,7 @@ private: System::Void btn_rotar_Click(System::Object^ sender, System::EventArgs^
 	g->DrawLine(eje, cx, 0, cx, pictureBox1->Height);
 
 	try {
-		// Leer ángulo y centro de rotación
+		// Leer angulo y centro de rotacion
 		double angulo = Convert::ToDouble(caja_Grados->Text);
 		double rad = angulo * Math::PI / 180.0; // convertir a radianes
 
@@ -1102,11 +1102,11 @@ private: System::Void btn_rotar_Click(System::Object^ sender, System::EventArgs^
 			double x = figuraOriginal[i].X;
 			double y = figuraOriginal[i].Y;
 
-			// Trasladar al centro de rotación
+			// Trasladar al centro de rotacion
 			double xt = x - h;
 			double yt = y - k;
 
-			// Aplicar rotación
+			// Aplicar rotacion
 			double xr = xt * Math::Cos(rad) - yt * Math::Sin(rad);
 			double yr = xt * Math::Sin(rad) + yt * Math::Cos(rad);
 
@@ -1127,12 +1127,12 @@ private: System::Void btn_rotar_Click(System::Object^ sender, System::EventArgs^
 
 	}
 	catch (Exception^ ex) {
-		MessageBox::Show("Error: Verifique que los valores de rotación sean números válidos.", "Error de entrada", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		MessageBox::Show("Error: Verifique que los valores de rotacion sean numeros validos.", "Error de entrada", MessageBoxButtons::OK, MessageBoxIcon::Error);
 	}
 }
 private: System::Void btn_ejeX_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (figuraOriginal == nullptr) {
-		MessageBox::Show("Primero debe dibujar una figura.", "Validación", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+		MessageBox::Show("Primero debe dibujar una figura.", "Validacion", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 		return;
 	}
 
@@ -1154,7 +1154,7 @@ private: System::Void btn_ejeX_Click(System::Object^ sender, System::EventArgs^ 
 }
 private: System::Void btn_ejeY_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (figuraOriginal == nullptr) {
-		MessageBox::Show("Primero debe dibujar una figura.", "Validación", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+		MessageBox::Show("Primero debe dibujar una figura.", "Validacion", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 		return;
 	}
 
@@ -1174,7 +1174,7 @@ private: System::Void btn_ejeY_Click(System::Object^ sender, System::EventArgs^ 
 }
 private: System::Void btn_ejeZ_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (figuraOriginal == nullptr) {
-		MessageBox::Show("Primero debe dibujar una figura.", "Validación", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+		MessageBox::Show("Primero debe dibujar una figura.", "Validacion", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 		return;
 	}
 
@@ -1204,7 +1204,7 @@ private: System::Void CambiarColor_Click(System::Object^ sender, System::EventAr
 
 	// Validar que haya una figura dibujada
 	if (figuraOriginal == nullptr) {
-		MessageBox::Show("Primero debe dibujar una figura para cambiar su color.", "Validación", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+		MessageBox::Show("Primero debe dibujar una figura para cambiar su color.", "Validacion", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 		return;
 	}
 	//Crear el dialogo de color
@@ -1260,7 +1260,7 @@ private: System::Void btnEscalar_Click(System::Object^ sender, System::EventArgs
 		int cx = pictureBox1->Width / 2;
 		int cy = pictureBox1->Height / 2;
 
-		// Dibujar figura homotética
+		// Dibujar figura homotetica
 		DibujarFigura(g, cx, cy, figuraHomotecia);
 
 		// --- Dibujar el centro de homotecia ---
@@ -1269,7 +1269,7 @@ private: System::Void btnEscalar_Click(System::Object^ sender, System::EventArgs
 		SolidBrush^ centroBrush = gcnew SolidBrush(Color::Black);
 		g->FillEllipse(centroBrush, pxCentro - 4, pyCentro - 4, 8, 8);
 
-		// --- Dibujar líneas de proyección ---
+		// --- Dibujar lineas de proyeccion ---
 		Pen^ proyeccion = gcnew Pen(Color::Gray, 1);
 		for (int i = 0; i < figuraOriginal->Length; i++) {
 			int pxOrig = cx + figuraOriginal[i].X;
@@ -1278,13 +1278,13 @@ private: System::Void btnEscalar_Click(System::Object^ sender, System::EventArgs
 			int pxHomo = cx + figuraHomotecia[i].X;
 			int pyHomo = cy - figuraHomotecia[i].Y;
 
-			// (1) línea centro → original
+			// (1) linea centro → original
 			g->DrawLine(proyeccion, pxCentro, pyCentro, pxOrig, pyOrig);
 
-			// línea desde el centro hasta el homotético (pasa por el original también)
+			// linea desde el centro hasta el homotetico (pasa por el original tambien)
 			g->DrawLine(proyeccion, pxCentro, pyCentro, pxHomo, pyHomo);
 
-			// dibujar también el punto original en azul clarito (referencia opcional)
+			// dibujar tambien el punto original en azul clarito (referencia opcional)
 			SolidBrush^ refBrush = gcnew SolidBrush(Color::LightBlue);
 			g->FillEllipse(refBrush, pxOrig - 3, pyOrig - 3, 6, 6);
 		}
