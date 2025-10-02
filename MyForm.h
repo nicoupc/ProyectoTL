@@ -383,7 +383,7 @@ namespace ProyectoTL {
 			// 
 			// btn_punto2X
 			// 
-			this->btn_punto2X->Location = System::Drawing::Point(135, 640);
+			this->btn_punto2X->Location = System::Drawing::Point(135, 655);
 			this->btn_punto2X->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_punto2X->Name = L"btn_punto2X";
 			this->btn_punto2X->Size = System::Drawing::Size(120, 28);
@@ -391,7 +391,7 @@ namespace ProyectoTL {
 			// 
 			// btn_punto2Y
 			// 
-			this->btn_punto2Y->Location = System::Drawing::Point(295, 640);
+			this->btn_punto2Y->Location = System::Drawing::Point(295, 655);
 			this->btn_punto2Y->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_punto2Y->Name = L"btn_punto2Y";
 			this->btn_punto2Y->Size = System::Drawing::Size(120, 28);
@@ -399,7 +399,7 @@ namespace ProyectoTL {
 			// 
 			// btn_punto3X
 			// 
-			this->btn_punto3X->Location = System::Drawing::Point(135, 680);
+			this->btn_punto3X->Location = System::Drawing::Point(135, 710);
 			this->btn_punto3X->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_punto3X->Name = L"btn_punto3X";
 			this->btn_punto3X->Size = System::Drawing::Size(120, 28);
@@ -407,7 +407,7 @@ namespace ProyectoTL {
 			// 
 			// btn_punto3Y
 			// 
-			this->btn_punto3Y->Location = System::Drawing::Point(295, 680);
+			this->btn_punto3Y->Location = System::Drawing::Point(295, 710);
 			this->btn_punto3Y->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_punto3Y->Name = L"btn_punto3Y";
 			this->btn_punto3Y->Size = System::Drawing::Size(120, 28);
@@ -425,7 +425,7 @@ namespace ProyectoTL {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(30, 643);
+			this->label2->Location = System::Drawing::Point(30, 658);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(51, 16);
 			this->label2->TabIndex = 9;
@@ -434,7 +434,7 @@ namespace ProyectoTL {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(30, 683);
+			this->label3->Location = System::Drawing::Point(30, 713);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(51, 16);
 			this->label3->TabIndex = 10;
@@ -465,7 +465,7 @@ namespace ProyectoTL {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(30, 723);
+			this->label4->Location = System::Drawing::Point(30, 768);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(51, 16);
 			this->label4->TabIndex = 13;
@@ -473,7 +473,7 @@ namespace ProyectoTL {
 			// 
 			// btn_punto4X
 			// 
-			this->btn_punto4X->Location = System::Drawing::Point(135, 720);
+			this->btn_punto4X->Location = System::Drawing::Point(135, 765);
 			this->btn_punto4X->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_punto4X->Name = L"btn_punto4X";
 			this->btn_punto4X->Size = System::Drawing::Size(120, 28);
@@ -481,7 +481,7 @@ namespace ProyectoTL {
 			// 
 			// btn_punto4Y
 			// 
-			this->btn_punto4Y->Location = System::Drawing::Point(295, 720);
+			this->btn_punto4Y->Location = System::Drawing::Point(295, 765);
 			this->btn_punto4Y->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_punto4Y->Name = L"btn_punto4Y";
 			this->btn_punto4Y->Size = System::Drawing::Size(120, 28);
@@ -501,7 +501,7 @@ namespace ProyectoTL {
 			// 
 			// caja_Grados
 			// 
-			this->caja_Grados->Location = System::Drawing::Point(90, 833);
+			this->caja_Grados->Location = System::Drawing::Point(90, 848);
 			this->caja_Grados->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->caja_Grados->Name = L"caja_Grados";
 			this->caja_Grados->Size = System::Drawing::Size(80, 22);
@@ -509,7 +509,7 @@ namespace ProyectoTL {
 			// 
 			// grado_ubicacion1
 			// 
-			this->grado_ubicacion1->Location = System::Drawing::Point(275, 833);
+			this->grado_ubicacion1->Location = System::Drawing::Point(275, 848);
 			this->grado_ubicacion1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->grado_ubicacion1->Name = L"grado_ubicacion1";
 			this->grado_ubicacion1->Size = System::Drawing::Size(80, 22);
@@ -517,7 +517,7 @@ namespace ProyectoTL {
 			// 
 			// btn_rotar
 			// 
-			this->btn_rotar->Location = System::Drawing::Point(570, 830);
+			this->btn_rotar->Location = System::Drawing::Point(570, 845);
 			this->btn_rotar->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_rotar->Name = L"btn_rotar";
 			this->btn_rotar->Size = System::Drawing::Size(110, 38);
@@ -528,7 +528,7 @@ namespace ProyectoTL {
 			// 
 			// grado_ubicacion2
 			// 
-			this->grado_ubicacion2->Location = System::Drawing::Point(460, 833);
+			this->grado_ubicacion2->Location = System::Drawing::Point(460, 848);
 			this->grado_ubicacion2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->grado_ubicacion2->Name = L"grado_ubicacion2";
 			this->grado_ubicacion2->Size = System::Drawing::Size(80, 22);
@@ -581,7 +581,7 @@ namespace ProyectoTL {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(30, 800);
+			this->label6->Location = System::Drawing::Point(30, 815);
 			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(77, 16);
@@ -602,7 +602,7 @@ namespace ProyectoTL {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(380, 835);
+			this->label8->Location = System::Drawing::Point(380, 850);
 			this->label8->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(61, 16);
@@ -631,7 +631,7 @@ namespace ProyectoTL {
 			// label11
 			// 
 			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(270, 643);
+			this->label11->Location = System::Drawing::Point(270, 658);
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(16, 16);
 			this->label11->TabIndex = 31;
@@ -640,7 +640,7 @@ namespace ProyectoTL {
 			// label12
 			// 
 			this->label12->AutoSize = true;
-			this->label12->Location = System::Drawing::Point(110, 643);
+			this->label12->Location = System::Drawing::Point(110, 658);
 			this->label12->Name = L"label12";
 			this->label12->Size = System::Drawing::Size(15, 16);
 			this->label12->TabIndex = 30;
@@ -649,7 +649,7 @@ namespace ProyectoTL {
 			// label13
 			// 
 			this->label13->AutoSize = true;
-			this->label13->Location = System::Drawing::Point(270, 683);
+			this->label13->Location = System::Drawing::Point(270, 713);
 			this->label13->Name = L"label13";
 			this->label13->Size = System::Drawing::Size(16, 16);
 			this->label13->TabIndex = 33;
@@ -658,7 +658,7 @@ namespace ProyectoTL {
 			// label14
 			// 
 			this->label14->AutoSize = true;
-			this->label14->Location = System::Drawing::Point(110, 683);
+			this->label14->Location = System::Drawing::Point(110, 713);
 			this->label14->Name = L"label14";
 			this->label14->Size = System::Drawing::Size(15, 16);
 			this->label14->TabIndex = 32;
@@ -667,7 +667,7 @@ namespace ProyectoTL {
 			// label15
 			// 
 			this->label15->AutoSize = true;
-			this->label15->Location = System::Drawing::Point(110, 723);
+			this->label15->Location = System::Drawing::Point(110, 768);
 			this->label15->Name = L"label15";
 			this->label15->Size = System::Drawing::Size(16, 16);
 			this->label15->TabIndex = 35;
@@ -676,7 +676,7 @@ namespace ProyectoTL {
 			// label16
 			// 
 			this->label16->AutoSize = true;
-			this->label16->Location = System::Drawing::Point(270, 723);
+			this->label16->Location = System::Drawing::Point(270, 768);
 			this->label16->Name = L"label16";
 			this->label16->Size = System::Drawing::Size(15, 16);
 			this->label16->TabIndex = 34;
@@ -685,7 +685,7 @@ namespace ProyectoTL {
 			// label17
 			// 
 			this->label17->AutoSize = true;
-			this->label17->Location = System::Drawing::Point(30, 835);
+			this->label17->Location = System::Drawing::Point(30, 850);
 			this->label17->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label17->Name = L"label17";
 			this->label17->Size = System::Drawing::Size(55, 16);
@@ -695,7 +695,7 @@ namespace ProyectoTL {
 			// label18
 			// 
 			this->label18->AutoSize = true;
-			this->label18->Location = System::Drawing::Point(195, 835);
+			this->label18->Location = System::Drawing::Point(195, 850);
 			this->label18->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label18->Name = L"label18";
 			this->label18->Size = System::Drawing::Size(60, 16);
@@ -716,7 +716,7 @@ namespace ProyectoTL {
 			// label19
 			// 
 			this->label19->AutoSize = true;
-			this->label19->Location = System::Drawing::Point(30, 875);
+			this->label19->Location = System::Drawing::Point(30, 900);
 			this->label19->Name = L"label19";
 			this->label19->Size = System::Drawing::Size(149, 16);
 			this->label19->TabIndex = 39;
@@ -725,7 +725,7 @@ namespace ProyectoTL {
 			// label20
 			// 
 			this->label20->AutoSize = true;
-			this->label20->Location = System::Drawing::Point(185, 910);
+			this->label20->Location = System::Drawing::Point(185, 935);
 			this->label20->Name = L"label20";
 			this->label20->Size = System::Drawing::Size(60, 16);
 			this->label20->TabIndex = 40;
@@ -734,7 +734,7 @@ namespace ProyectoTL {
 			// label21
 			// 
 			this->label21->AutoSize = true;
-			this->label21->Location = System::Drawing::Point(360, 910);
+			this->label21->Location = System::Drawing::Point(360, 935);
 			this->label21->Name = L"label21";
 			this->label21->Size = System::Drawing::Size(61, 16);
 			this->label21->TabIndex = 41;
@@ -743,7 +743,7 @@ namespace ProyectoTL {
 			// label22
 			// 
 			this->label22->AutoSize = true;
-			this->label22->Location = System::Drawing::Point(30, 910);
+			this->label22->Location = System::Drawing::Point(30, 935);
 			this->label22->Name = L"label22";
 			this->label22->Size = System::Drawing::Size(48, 16);
 			this->label22->TabIndex = 42;
@@ -751,28 +751,28 @@ namespace ProyectoTL {
 			// 
 			// txtVEscala
 			// 
-			this->txtVEscala->Location = System::Drawing::Point(90, 908);
+			this->txtVEscala->Location = System::Drawing::Point(90, 933);
 			this->txtVEscala->Name = L"txtVEscala";
 			this->txtVEscala->Size = System::Drawing::Size(70, 22);
 			this->txtVEscala->TabIndex = 43;
 			// 
 			// txtXEscala
 			// 
-			this->txtXEscala->Location = System::Drawing::Point(265, 908);
+			this->txtXEscala->Location = System::Drawing::Point(265, 933);
 			this->txtXEscala->Name = L"txtXEscala";
 			this->txtXEscala->Size = System::Drawing::Size(70, 22);
 			this->txtXEscala->TabIndex = 44;
 			// 
 			// txtYEscala
 			// 
-			this->txtYEscala->Location = System::Drawing::Point(440, 908);
+			this->txtYEscala->Location = System::Drawing::Point(440, 933);
 			this->txtYEscala->Name = L"txtYEscala";
 			this->txtYEscala->Size = System::Drawing::Size(70, 22);
 			this->txtYEscala->TabIndex = 45;
 			// 
 			// btnEscalar
 			// 
-			this->btnEscalar->Location = System::Drawing::Point(535, 905);
+			this->btnEscalar->Location = System::Drawing::Point(535, 930);
 			this->btnEscalar->Name = L"btnEscalar";
 			this->btnEscalar->Size = System::Drawing::Size(130, 38);
 			this->btnEscalar->TabIndex = 46;
@@ -1193,16 +1193,18 @@ private: System::Void cajaFormas_SelectedIndexChanged(System::Object^ sender, Sy
 
 		if ( cajaFormas->SelectedItem->ToString() == "Triangulo") {
 			btn_punto4X->Enabled = false;
+			btn_punto4X->BackColor = Color::FromArgb(240, 240, 240);
 			btn_punto4Y->Enabled = false;
+			btn_punto4Y->BackColor = Color::FromArgb(240, 240, 240);
 			// Limpiar los campos del cuarto punto
 			btn_punto4X->Text = "";
 			btn_punto4Y->Text = "";
 		}
 		else if (cajaFormas->SelectedItem->ToString() == "Cuadrilatero") {
 			btn_punto4X->Enabled = true;
-		btn_punto4X->BackColor = Color::White;
+			btn_punto4X->BackColor = Color::White;
 			btn_punto4Y->Enabled = true;
-		btn_punto4Y->BackColor = Color::White;
+			btn_punto4Y->BackColor = Color::White;
 		}
 	}
 	else
