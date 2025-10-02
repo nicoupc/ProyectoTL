@@ -1,0 +1,174 @@
+═══════════════════════════════════════════════════════════════════════════════
+  CAMBIOS REALIZADOS #2 - Bloqueo de Controles al Inicio
+═══════════════════════════════════════════════════════════════════════════════
+
+FECHA: 2025
+ARCHIVO MODIFICADO: MyForm.h
+
+═══════════════════════════════════════════════════════════════════════════════
+PROBLEMA IDENTIFICADO:
+═══════════════════════════════════════════════════════════════════════════════
+
+Al iniciar la aplicación, algunos controles estaban habilitados cuando NO deberían:
+• Los campos de HOMOTECIA/ESCALA (txtVEscala, txtXEscala, txtYEscala) estaban
+  disponibles sin haber dibujado ninguna figura
+• El botón de escalar (btnEscalar) estaba disponible
+• No había validación numérica en estos campos
+• El botón "Borrar Todo" no restauraba el estado inicial de la aplicación
+
+═══════════════════════════════════════════════════════════════════════════════
+SOLUCIÓN IMPLEMENTADA:
+═══════════════════════════════════════════════════════════════════════════════
+
+1. CONSTRUCTOR - Bloqueo inicial de controles de homotecia
+   --------------------------------------------------------
+   Se agregaron las siguientes líneas al constructor MyForm():
+   
+   • txtVEscala->Enabled = false;
+   • txtXEscala->Enabled = false;
+   • txtYEscala->Enabled = false;
+   • btnEscalar->Enabled = false;
+
+2. VALIDACIÓN NUMÉRICA - Campos de homotecia
+   ------------------------------------------
+   Se agregó validación numérica para los campos de escala en el método
+   ConfigurarValidacionNumerica():
+   
+   • txtVEscala->KeyPress += validación
+   • txtXEscala->KeyPress += validación
+   • txtYEscala->KeyPress += validación
+   
+   Ahora estos campos solo aceptan:
+   ✓ Números
+   ✓ Signo negativo (solo al inicio)
+   ✓ Punto decimal (solo uno)
+
+3. HABILITACIÓN DESPUÉS DE DIBUJAR
+   --------------------------------
+   En el método btn_Dibujar_Click(), después de dibujar exitosamente,
+   se habilitan los controles de homotecia:
+   
+   • txtVEscala->Enabled = true;
+   • txtXEscala->Enabled = true;
+   • txtYEscala->Enabled = true;
+   • btnEscalar->Enabled = true;
+
+4. MEJORA DEL BOTÓN "BORRAR TODO"
+   -------------------------------
+   El método btn_Borrar_Click() ahora realiza un RESET COMPLETO:
+   
+   a) Limpia el canvas y redibuja los ejes
+   
+   b) Limpia TODOS los campos de texto:
+      • Puntos (X, Y) de todas las coordenadas
+      • Grados de rotación
+      • Coordenadas de ubicación
+      • Valores de homotecia
+   
+   c) Deshabilita TODOS los controles:
+      • Campos de coordenadas de puntos
+      • Campos de rotación
+      • Campos de homotecia
+      • Botones de transformaciones
+   
+   d) Reinicia el selector de formas (cajaFormas)
+   
+   e) Limpia la referencia a la figura dibujada (figuraOriginal = nullptr)
+
+═══════════════════════════════════════════════════════════════════════════════
+FLUJO DE TRABAJO MEJORADO:
+═══════════════════════════════════════════════════════════════════════════════
+
+ESTADO INICIAL (al abrir el programa):
+┌─────────────────────────────────────────┐
+│ ✓ Selector de formas: HABILITADO       │
+│ ✓ Botón demo: HABILITADO               │
+│ ✗ Campos de puntos: DESHABILITADOS     │
+│ ✗ Campos de rotación: DESHABILITADOS   │
+│ ✗ Campos de homotecia: DESHABILITADOS  │
+│ ✗ Botones de transformación: DESHABILI │
+└─────────────────────────────────────────┘
+
+DESPUÉS DE SELECCIONAR FORMA:
+┌─────────────────────────────────────────┐
+│ ✓ Campos de puntos: HABILITADOS        │
+│ ✓ Campos de rotación: HABILITADOS      │
+│ ✓ Botón dibujar: HABILITADO            │
+│ ✗ Campos de homotecia: DESHABILITADOS  │
+│ ✗ Otros botones: DESHABILITADOS        │
+└─────────────────────────────────────────┘
+
+DESPUÉS DE DIBUJAR:
+┌─────────────────────────────────────────┐
+│ ✓ TODOS los botones: HABILITADOS       │
+│ ✓ TODOS los campos: HABILITADOS        │
+│ ✓ Campos de homotecia: HABILITADOS     │
+└─────────────────────────────────────────┘
+
+DESPUÉS DE "BORRAR TODO":
+┌─────────────────────────────────────────┐
+│ → Vuelve al ESTADO INICIAL             │
+│ → Todos los campos limpiados            │
+│ → Todo deshabilitado excepto selector   │
+└─────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+CONTROLES AFECTADOS POR LOS CAMBIOS:
+═══════════════════════════════════════════════════════════════════════════════
+
+CAMPOS DE TEXTO (TextBox):
+• btn_punto1X, btn_punto1Y       - Punto 1
+• btn_punto2X, btn_punto2Y       - Punto 2
+• btn_punto3X, btn_punto3Y       - Punto 3
+• btn_punto4X, btn_punto4Y       - Punto 4
+• caja_Grados                    - Grados de rotación
+• grado_ubicacion1, grado_ubicacion2 - Ubicación
+• txtVEscala, txtXEscala, txtYEscala - Homotecia ⭐ NUEVO
+
+BOTONES:
+• btn_Dibujar                    - Dibujar figura
+• btn_rotar                      - Rotar figura
+• btn_ejeX, btn_ejeY, btn_ejeZ   - Reflexiones
+• CambiarColor                   - Cambiar color
+• btnEscalar                     - Aplicar homotecia ⭐ NUEVO
+• btn_Borrar                     - Borrar todo (MEJORADO) ⭐
+
+═══════════════════════════════════════════════════════════════════════════════
+BENEFICIOS:
+═══════════════════════════════════════════════════════════════════════════════
+
+✓ Interfaz más intuitiva y profesional
+✓ Previene errores del usuario
+✓ No se pueden aplicar transformaciones sin una figura
+✓ Validación numérica en TODOS los campos
+✓ El botón "Borrar Todo" realmente limpia TODO
+✓ Flujo de trabajo lógico y secuencial
+✓ Mejor experiencia de usuario
+
+═══════════════════════════════════════════════════════════════════════════════
+COMPILACIÓN:
+═══════════════════════════════════════════════════════════════════════════════
+
+Estado: ✓ EXITOSA
+Plataforma: x64
+Configuración: Debug
+Warnings: 2 (variables no utilizadas, no afectan funcionalidad)
+Ejecutable: x64\Debug\ProyectoTL.exe
+
+═══════════════════════════════════════════════════════════════════════════════
+ARCHIVOS MODIFICADOS:
+═══════════════════════════════════════════════════════════════════════════════
+
+1. MyForm.h - Constructor (línea ~26-51)
+   • Agregado bloqueo de controles de homotecia
+
+2. MyForm.h - ConfigurarValidacionNumerica() (línea ~56-74)
+   • Agregada validación numérica para campos de homotecia
+
+3. MyForm.h - btn_Dibujar_Click() (línea ~935-945)
+   • Agregada habilitación de controles de homotecia
+
+4. MyForm.h - btn_Borrar_Click() (línea ~963-1019)
+   • REESCRITO COMPLETAMENTE para reset total de la aplicación
+
+═══════════════════════════════════════════════════════════════════════════════

@@ -1,0 +1,344 @@
+═══════════════════════════════════════════════════════════════════════════════
+  CAMBIOS REALIZADOS #4 - Corrección del Botón Demo
+═══════════════════════════════════════════════════════════════════════════════
+
+FECHA: 2025
+ARCHIVO MODIFICADO: MyForm.h
+
+═══════════════════════════════════════════════════════════════════════════════
+PROBLEMA IDENTIFICADO:
+═══════════════════════════════════════════════════════════════════════════════
+
+El botón DEMO tenía un comportamiento inconsistente que causaba confusión:
+
+❌ SÍNTOMAS:
+1. Usuario dibuja una figura con puntos
+2. Usuario presiona botón "Demo"
+3. Aparece la figura de demostración (triángulo)
+4. La figura original desaparece visualmente
+5. Usuario intenta aplicar reflexión/rotación
+6. ❌ La transformación se aplica a la figura ANTERIOR (que ya no se ve)
+7. ❌ La figura demo NO se transforma
+8. ❌ Usuario confundido: "¿Por qué no funciona?"
+
+❌ CAUSA RAÍZ:
+El botón demo dibujaba una figura pero NO actualizaba la variable 
+`figuraOriginal`, por lo que las transformaciones seguían usando los 
+datos de la figura anterior que ya no estaba visible en pantalla.
+
+═══════════════════════════════════════════════════════════════════════════════
+SOLUCIÓN IMPLEMENTADA:
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ ENFOQUE ELEGIDO: "Demo completo e interactivo"
+
+El botón demo ahora funciona como un dibujo normal completo:
+• Guarda los puntos en `figuraOriginal`
+• Habilita todas las transformaciones
+• Llena los campos de texto con los valores
+• Actualiza el selector de forma
+• Permite aplicar transformaciones a la figura demo
+
+═══════════════════════════════════════════════════════════════════════════════
+CAMBIOS DETALLADOS EN btn_demo_Click():
+═══════════════════════════════════════════════════════════════════════════════
+
+📍 ANTES:
+────────
+private: System::Void btn_demo_Click(...) {
+    // Limpiar canvas
+    g->Clear(Color::White);
+    
+    // Dibujar ejes
+    g->DrawLine(eje, ...);
+    
+    // Crear puntos en coordenadas de pantalla (INCORRECTO)
+    array<Point>^ puntos = {
+        Point(cx + 50, cy - 50),   // Coordenadas mezcladas
+        Point(cx + 100, cy + 30),
+        Point(cx + 20, cy + 40)
+    };
+    
+    // Dibujar directamente con DrawPolygon
+    g->DrawPolygon(figura, puntos);
+    
+    // ❌ NO guarda en figuraOriginal
+    // ❌ NO habilita transformaciones
+    // ❌ NO actualiza campos de texto
+}
+
+PROBLEMAS:
+• Los puntos estaban en coordenadas de pantalla (mezcladas)
+• No se guardaba la figura
+• No se podían aplicar transformaciones
+
+
+📍 AHORA:
+─────────
+private: System::Void btn_demo_Click(...) {
+    // Limpiar canvas
+    g->Clear(Color::White);
+    
+    // Dibujar ejes
+    g->DrawLine(eje, ...);
+    
+    // Definir puntos en sistema de coordenadas LÓGICO
+    array<Point>^ puntosDemo = {
+        Point(50, 50),     // Sistema lógico correcto
+        Point(100, -30),
+        Point(20, -40)
+    };
+    
+    // ✓ GUARDAR en figuraOriginal (¡clave!)
+    figuraOriginal = puntosDemo;
+    
+    // ✓ Dibujar usando el método estándar
+    DibujarFigura(g, cx, cy, puntosDemo);
+    
+    // ✓ HABILITAR transformaciones
+    btn_rotar->Enabled = true;
+    btn_ejeX->Enabled = true;
+    btn_ejeY->Enabled = true;
+    btn_ejeZ->Enabled = true;
+    CambiarColor->Enabled = true;
+    
+    // ✓ HABILITAR campos de rotación
+    caja_Grados->Enabled = true;
+    grado_ubicacion1->Enabled = true;
+    grado_ubicacion2->Enabled = true;
+    
+    // ✓ HABILITAR campos de homotecia
+    txtVEscala->Enabled = true;
+    txtXEscala->Enabled = true;
+    txtYEscala->Enabled = true;
+    btnEscalar->Enabled = true;
+    
+    // ✓ ACTUALIZAR selector de forma
+    cajaFormas->SelectedIndex = 0; // Triángulo
+    
+    // ✓ LLENAR campos de texto
+    btn_punto1X->Text = "50";
+    btn_punto1Y->Text = "50";
+    btn_punto2X->Text = "100";
+    btn_punto2Y->Text = "-30";
+    btn_punto3X->Text = "20";
+    btn_punto3Y->Text = "-40";
+}
+
+MEJORAS:
+✓ Puntos en sistema de coordenadas lógico
+✓ Guarda figura en figuraOriginal
+✓ Habilita todas las transformaciones
+✓ Llena campos para transparencia
+✓ Usuario puede ver y modificar los valores
+
+═══════════════════════════════════════════════════════════════════════════════
+FLUJO DE USO MEJORADO:
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────────────────────┐
+│  ESCENARIO 1: Usuario nuevo que quiere ver cómo funciona           │
+├─────────────────────────────────────────────────────────────────────┤
+│  1. Abre el programa                                                │
+│  2. Presiona "Demo" sin saber qué hacer                            │
+│  3. ✓ Aparece un triángulo de ejemplo                              │
+│  4. ✓ TODOS los controles se habilitan                             │
+│  5. ✓ Puede probar Rotar → ¡Funciona!                              │
+│  6. ✓ Puede probar Reflexión → ¡Funciona!                          │
+│  7. ✓ Puede cambiar color → ¡Funciona!                             │
+│  8. ✓ Puede ver los puntos en los campos                           │
+│  9. ✓ Aprende cómo funciona el programa                            │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│  ESCENARIO 2: Usuario que quiere probar algo rápido                │
+├─────────────────────────────────────────────────────────────────────┤
+│  1. Presiona "Demo" → Figura aparece                               │
+│  2. Cambia los valores en los campos                               │
+│      • Cambia 50 por 80                                            │
+│      • Cambia -30 por -50                                          │
+│  3. Presiona "Dibujar"                                             │
+│  4. ✓ Nueva figura basada en la demo modificada                    │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│  ESCENARIO 3: Usuario con figura dibujada presiona demo            │
+├─────────────────────────────────────────────────────────────────────┤
+│  ANTES:                                                             │
+│  1. Usuario dibuja cuadrilátero                                    │
+│  2. Presiona "Demo"                                                │
+│  3. Aparece triángulo demo                                         │
+│  4. Intenta rotar                                                   │
+│  5. ❌ Se rota el cuadrilátero invisible (confusión)               │
+│                                                                     │
+│  AHORA:                                                             │
+│  1. Usuario dibuja cuadrilátero                                    │
+│  2. Presiona "Demo"                                                │
+│  3. Aparece triángulo demo                                         │
+│  4. Los campos se actualizan con puntos del triángulo              │
+│  5. Intenta rotar                                                   │
+│  6. ✓ Se rota el triángulo visible (correcto)                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+BENEFICIOS DE LA SOLUCIÓN:
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ CONSISTENCIA:
+   • Demo se comporta como un dibujo normal
+   • No hay comportamiento especial confuso
+   • Lo que ves es lo que transformas
+
+✅ APRENDIZAJE:
+   • Usuarios nuevos pueden explorar todas las funciones
+   • Demo totalmente funcional e interactivo
+   • Pueden ver los valores de los puntos
+   • Pueden modificar y redibujar
+
+✅ PRODUCTIVIDAD:
+   • Demo puede usarse como punto de partida
+   • Usuario puede modificar valores del demo
+   • No necesita escribir todos los puntos desde cero
+
+✅ NO CONFUSIÓN:
+   • Las transformaciones siempre afectan la figura visible
+   • Comportamiento predecible e intuitivo
+   • Sin sorpresas desagradables
+
+═══════════════════════════════════════════════════════════════════════════════
+FIGURA DE DEMOSTRACIÓN:
+═══════════════════════════════════════════════════════════════════════════════
+
+Triángulo con coordenadas:
+• Punto 1: (50, 50)
+• Punto 2: (100, -30)
+• Punto 3: (20, -40)
+
+Características:
+✓ Tamaño visible y claro
+✓ No simétrico (bueno para ver transformaciones)
+✓ Valores fáciles de modificar
+✓ Muestra diferentes cuadrantes
+
+═══════════════════════════════════════════════════════════════════════════════
+COMPARACIÓN: ANTES vs AHORA
+═══════════════════════════════════════════════════════════════════════════════
+
+┌────────────────────────────────┬────────────────────────────────┐
+│  ASPECTO         │ ANTES       │  AHORA                         │
+├──────────────────┼─────────────┼────────────────────────────────┤
+│ figuraOriginal   │ NO se guarda│ ✓ Se guarda correctamente      │
+│ Transformaciones │ No funcionan│ ✓ Todas funcionan              │
+│ Campos de texto  │ Vacíos      │ ✓ Muestran valores demo        │
+│ Selector forma   │ No cambia   │ ✓ Se actualiza (Triángulo)     │
+│ Consistencia     │ ❌ Confuso  │ ✓ Predecible                   │
+│ Sistema coords   │ Mezclado    │ ✓ Lógico correcto              │
+│ Método dibujo    │ DrawPolygon │ ✓ DibujarFigura (estándar)     │
+│ Interactividad   │ Solo visual │ ✓ Completamente funcional      │
+└──────────────────┴─────────────┴────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+CASOS DE USO MEJORADOS:
+═══════════════════════════════════════════════════════════════════════════════
+
+📌 CASO 1: Profesor mostrando el programa a estudiantes
+───────────────────────────────────────────────────────
+1. Presiona "Demo" → Triángulo aparece
+2. Dice: "Ahora vamos a rotarlo 45 grados"
+3. Ingresa 45 en grados
+4. ✓ El triángulo rota correctamente
+5. Dice: "Ahora reflexión en X"
+6. ✓ Funciona perfectamente
+7. ✓ Demostración exitosa
+
+📌 CASO 2: Estudiante aprendiendo solo
+───────────────────────────────────────
+1. No sabe qué hacer
+2. Presiona "Demo" por curiosidad
+3. Ve un triángulo
+4. Ve los valores en los campos
+5. Entiende: "Ah, así se ponen los puntos"
+6. Prueba rotación → funciona
+7. Prueba reflexión → funciona
+8. ✓ Aprendió experimentando
+
+📌 CASO 3: Usuario modificando la demo
+──────────────────────────────────────
+1. Presiona "Demo"
+2. Ve los valores: (50,50), (100,-30), (20,-40)
+3. Piensa: "¿Y si lo hago más grande?"
+4. Cambia a: (100,100), (200,-60), (40,-80)
+5. Presiona "Dibujar"
+6. ✓ Triángulo más grande aparece
+7. ✓ Demo sirvió como plantilla
+
+═══════════════════════════════════════════════════════════════════════════════
+DETALLES TÉCNICOS:
+═══════════════════════════════════════════════════════════════════════════════
+
+CORRECCIÓN DEL SISTEMA DE COORDENADAS:
+----------------------------------------
+ANTES (Incorrecto):
+  Point(cx + 50, cy - 50)    // Coordenadas mezcladas con pantalla
+
+AHORA (Correcto):
+  Point(50, 50)              // Coordenadas lógicas puras
+  → Se convierten en DibujarFigura(g, cx, cy, puntos)
+
+USO DE MÉTODO ESTÁNDAR:
+-----------------------
+ANTES:
+  g->DrawPolygon(figura, puntos);  // Método directo
+
+AHORA:
+  DibujarFigura(g, cx, cy, puntosDemo);  // Método estándar
+  
+BENEFICIO: Consistencia total con el resto del código
+
+═══════════════════════════════════════════════════════════════════════════════
+RESUMEN DE CAMBIOS:
+═══════════════════════════════════════════════════════════════════════════════
+
+Archivo: MyForm.h
+Método: btn_demo_Click()
+Línea: ~844-896
+
+AGREGADO:
+• figuraOriginal = puntosDemo;
+• Habilitación de todos los controles de transformación
+• Actualización del selector de forma
+• Llenado de campos de texto con valores demo
+• Uso del método DibujarFigura() estándar
+
+CORREGIDO:
+• Sistema de coordenadas (de pantalla → lógico)
+• Consistencia con el resto de la aplicación
+
+═══════════════════════════════════════════════════════════════════════════════
+COMPILACIÓN:
+═══════════════════════════════════════════════════════════════════════════════
+
+Estado: ✓ EXITOSA
+Plataforma: x64
+Configuración: Debug
+Warnings: 2 (variables no utilizadas, no afectan funcionalidad)
+Ejecutable: x64\Debug\ProyectoTL.exe
+
+═══════════════════════════════════════════════════════════════════════════════
+CONCLUSIÓN:
+═══════════════════════════════════════════════════════════════════════════════
+
+El botón Demo ahora es:
+✓ Totalmente funcional
+✓ Completamente interactivo
+✓ Educativo y útil
+✓ Consistente con el resto del programa
+✓ Sin comportamientos confusos
+
+El usuario puede usar el demo para:
+• Aprender cómo funciona el programa
+• Probar todas las transformaciones
+• Usar como plantilla para sus propias figuras
+• Experimentar sin miedo
+
+═══════════════════════════════════════════════════════════════════════════════
