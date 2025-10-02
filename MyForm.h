@@ -23,23 +23,41 @@ namespace ProyectoTL {
 			//TODO: agregar codigo de constructor aqui
 			//
 
+
+		// APLICAR ESTILOS MODERNOS
+		AplicarEstilosModernos();
+
 			// Deshabilitar todas las cajas de texto al inicio
 			caja_Grados->Enabled = false;
+			caja_Grados->BackColor = Color::FromArgb(240, 240, 240);
 			grado_ubicacion1->Enabled = false;
+			grado_ubicacion1->BackColor = Color::FromArgb(240, 240, 240);
 			grado_ubicacion2->Enabled = false;
+			grado_ubicacion2->BackColor = Color::FromArgb(240, 240, 240);
 			btn_punto1X->Enabled = false;
+			btn_punto1X->BackColor = Color::FromArgb(240, 240, 240);
 			btn_punto2X->Enabled = false;
+			btn_punto2X->BackColor = Color::FromArgb(240, 240, 240);
 			btn_punto3X->Enabled = false;
+			btn_punto3X->BackColor = Color::FromArgb(240, 240, 240);
 			btn_punto3Y->Enabled = false;
+			btn_punto3Y->BackColor = Color::FromArgb(240, 240, 240);
 			btn_punto4X->Enabled = false;
+			btn_punto4X->BackColor = Color::FromArgb(240, 240, 240);
 			btn_punto4Y->Enabled = false;
+			btn_punto4Y->BackColor = Color::FromArgb(240, 240, 240);
 			btn_punto1Y->Enabled = false;
+			btn_punto1Y->BackColor = Color::FromArgb(240, 240, 240);
 			btn_punto2Y->Enabled = false;
+			btn_punto2Y->BackColor = Color::FromArgb(240, 240, 240);
 
 			// Deshabilitar campos de homotecia/escala
 			txtVEscala->Enabled = false;
+			txtVEscala->BackColor = Color::FromArgb(240, 240, 240);
 			txtXEscala->Enabled = false;
+			txtXEscala->BackColor = Color::FromArgb(240, 240, 240);
 			txtYEscala->Enabled = false;
+			txtYEscala->BackColor = Color::FromArgb(240, 240, 240);
 
 			// Deshabilitar botones de transformaciones
 			btn_Dibujar->Enabled = false; // Dibujar
@@ -51,6 +69,7 @@ namespace ProyectoTL {
 			btnEscalar->Enabled = false; // Homotecia/Escalar
 
 			// Configurar validacion numerica para todas las cajas de texto
+
 			ConfigurarValidacionNumerica();
 		}
 		// Metodo para configurar validacion numerica
@@ -337,10 +356,10 @@ namespace ProyectoTL {
 			// 
 			// btn_demo
 			// 
-			this->btn_demo->Location = System::Drawing::Point(270, 655);
+			this->btn_demo->Location = System::Drawing::Point(650, 700);
 			this->btn_demo->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_demo->Name = L"btn_demo";
-			this->btn_demo->Size = System::Drawing::Size(100, 35);
+			this->btn_demo->Size = System::Drawing::Size(150, 40);
 			this->btn_demo->TabIndex = 1;
 			this->btn_demo->Text = L"Demo";
 			this->btn_demo->UseVisualStyleBackColor = true;
@@ -348,56 +367,56 @@ namespace ProyectoTL {
 			// 
 			// btn_punto1X
 			// 
-			this->btn_punto1X->Location = System::Drawing::Point(105, 575);
+			this->btn_punto1X->Location = System::Drawing::Point(135, 600);
 			this->btn_punto1X->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_punto1X->Name = L"btn_punto1X";
-			this->btn_punto1X->Size = System::Drawing::Size(100, 22);
+			this->btn_punto1X->Size = System::Drawing::Size(120, 28);
 			this->btn_punto1X->TabIndex = 2;
 			// 
 			// btn_punto1Y
 			// 
-			this->btn_punto1Y->Location = System::Drawing::Point(245, 575);
+			this->btn_punto1Y->Location = System::Drawing::Point(295, 600);
 			this->btn_punto1Y->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_punto1Y->Name = L"btn_punto1Y";
-			this->btn_punto1Y->Size = System::Drawing::Size(100, 22);
+			this->btn_punto1Y->Size = System::Drawing::Size(120, 28);
 			this->btn_punto1Y->TabIndex = 3;
 			// 
 			// btn_punto2X
 			// 
-			this->btn_punto2X->Location = System::Drawing::Point(105, 610);
+			this->btn_punto2X->Location = System::Drawing::Point(135, 640);
 			this->btn_punto2X->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_punto2X->Name = L"btn_punto2X";
-			this->btn_punto2X->Size = System::Drawing::Size(100, 22);
+			this->btn_punto2X->Size = System::Drawing::Size(120, 28);
 			this->btn_punto2X->TabIndex = 4;
 			// 
 			// btn_punto2Y
 			// 
-			this->btn_punto2Y->Location = System::Drawing::Point(245, 610);
+			this->btn_punto2Y->Location = System::Drawing::Point(295, 640);
 			this->btn_punto2Y->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_punto2Y->Name = L"btn_punto2Y";
-			this->btn_punto2Y->Size = System::Drawing::Size(100, 22);
+			this->btn_punto2Y->Size = System::Drawing::Size(120, 28);
 			this->btn_punto2Y->TabIndex = 5;
 			// 
 			// btn_punto3X
 			// 
-			this->btn_punto3X->Location = System::Drawing::Point(505, 575);
+			this->btn_punto3X->Location = System::Drawing::Point(135, 680);
 			this->btn_punto3X->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_punto3X->Name = L"btn_punto3X";
-			this->btn_punto3X->Size = System::Drawing::Size(100, 22);
+			this->btn_punto3X->Size = System::Drawing::Size(120, 28);
 			this->btn_punto3X->TabIndex = 6;
 			// 
 			// btn_punto3Y
 			// 
-			this->btn_punto3Y->Location = System::Drawing::Point(645, 575);
+			this->btn_punto3Y->Location = System::Drawing::Point(295, 680);
 			this->btn_punto3Y->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_punto3Y->Name = L"btn_punto3Y";
-			this->btn_punto3Y->Size = System::Drawing::Size(100, 22);
+			this->btn_punto3Y->Size = System::Drawing::Size(120, 28);
 			this->btn_punto3Y->TabIndex = 7;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(30, 578);
+			this->label1->Location = System::Drawing::Point(30, 603);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(51, 16);
 			this->label1->TabIndex = 8;
@@ -406,7 +425,7 @@ namespace ProyectoTL {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(30, 613);
+			this->label2->Location = System::Drawing::Point(30, 643);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(51, 16);
 			this->label2->TabIndex = 9;
@@ -415,7 +434,7 @@ namespace ProyectoTL {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(430, 578);
+			this->label3->Location = System::Drawing::Point(30, 683);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(51, 16);
 			this->label3->TabIndex = 10;
@@ -423,10 +442,10 @@ namespace ProyectoTL {
 			// 
 			// btn_Dibujar
 			// 
-			this->btn_Dibujar->Location = System::Drawing::Point(30, 655);
+			this->btn_Dibujar->Location = System::Drawing::Point(650, 600);
 			this->btn_Dibujar->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_Dibujar->Name = L"btn_Dibujar";
-			this->btn_Dibujar->Size = System::Drawing::Size(100, 35);
+			this->btn_Dibujar->Size = System::Drawing::Size(150, 40);
 			this->btn_Dibujar->TabIndex = 11;
 			this->btn_Dibujar->Text = L"Dibujar";
 			this->btn_Dibujar->UseVisualStyleBackColor = true;
@@ -434,10 +453,10 @@ namespace ProyectoTL {
 			// 
 			// btn_Borrar
 			// 
-			this->btn_Borrar->Location = System::Drawing::Point(150, 655);
+			this->btn_Borrar->Location = System::Drawing::Point(650, 650);
 			this->btn_Borrar->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_Borrar->Name = L"btn_Borrar";
-			this->btn_Borrar->Size = System::Drawing::Size(100, 35);
+			this->btn_Borrar->Size = System::Drawing::Size(150, 40);
 			this->btn_Borrar->TabIndex = 12;
 			this->btn_Borrar->Text = L"Borrar Todo";
 			this->btn_Borrar->UseVisualStyleBackColor = true;
@@ -446,7 +465,7 @@ namespace ProyectoTL {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(430, 613);
+			this->label4->Location = System::Drawing::Point(30, 723);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(51, 16);
 			this->label4->TabIndex = 13;
@@ -454,25 +473,26 @@ namespace ProyectoTL {
 			// 
 			// btn_punto4X
 			// 
-			this->btn_punto4X->Location = System::Drawing::Point(505, 610);
+			this->btn_punto4X->Location = System::Drawing::Point(135, 720);
 			this->btn_punto4X->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_punto4X->Name = L"btn_punto4X";
-			this->btn_punto4X->Size = System::Drawing::Size(100, 22);
+			this->btn_punto4X->Size = System::Drawing::Size(120, 28);
 			this->btn_punto4X->TabIndex = 14;
 			// 
 			// btn_punto4Y
 			// 
-			this->btn_punto4Y->Location = System::Drawing::Point(645, 610);
+			this->btn_punto4Y->Location = System::Drawing::Point(295, 720);
 			this->btn_punto4Y->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_punto4Y->Name = L"btn_punto4Y";
-			this->btn_punto4Y->Size = System::Drawing::Size(100, 22);
+			this->btn_punto4Y->Size = System::Drawing::Size(120, 28);
 			this->btn_punto4Y->TabIndex = 15;
 			// 
 			// cajaFormas
-			// 
+			//
+			this->cajaFormas->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->cajaFormas->FormattingEnabled = true;
 			this->cajaFormas->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Triangulo", L"Cuadrilatero" });
-			this->cajaFormas->Location = System::Drawing::Point(140, 538);
+			this->cajaFormas->Location = System::Drawing::Point(180, 543);
 			this->cajaFormas->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->cajaFormas->Name = L"cajaFormas";
 			this->cajaFormas->Size = System::Drawing::Size(200, 24);
@@ -481,7 +501,7 @@ namespace ProyectoTL {
 			// 
 			// caja_Grados
 			// 
-			this->caja_Grados->Location = System::Drawing::Point(100, 733);
+			this->caja_Grados->Location = System::Drawing::Point(90, 833);
 			this->caja_Grados->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->caja_Grados->Name = L"caja_Grados";
 			this->caja_Grados->Size = System::Drawing::Size(80, 22);
@@ -489,7 +509,7 @@ namespace ProyectoTL {
 			// 
 			// grado_ubicacion1
 			// 
-			this->grado_ubicacion1->Location = System::Drawing::Point(270, 733);
+			this->grado_ubicacion1->Location = System::Drawing::Point(275, 833);
 			this->grado_ubicacion1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->grado_ubicacion1->Name = L"grado_ubicacion1";
 			this->grado_ubicacion1->Size = System::Drawing::Size(80, 22);
@@ -497,10 +517,10 @@ namespace ProyectoTL {
 			// 
 			// btn_rotar
 			// 
-			this->btn_rotar->Location = System::Drawing::Point(540, 730);
+			this->btn_rotar->Location = System::Drawing::Point(570, 830);
 			this->btn_rotar->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_rotar->Name = L"btn_rotar";
-			this->btn_rotar->Size = System::Drawing::Size(90, 30);
+			this->btn_rotar->Size = System::Drawing::Size(110, 38);
 			this->btn_rotar->TabIndex = 19;
 			this->btn_rotar->Text = L"Rotar";
 			this->btn_rotar->UseVisualStyleBackColor = true;
@@ -508,7 +528,7 @@ namespace ProyectoTL {
 			// 
 			// grado_ubicacion2
 			// 
-			this->grado_ubicacion2->Location = System::Drawing::Point(440, 733);
+			this->grado_ubicacion2->Location = System::Drawing::Point(460, 833);
 			this->grado_ubicacion2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->grado_ubicacion2->Name = L"grado_ubicacion2";
 			this->grado_ubicacion2->Size = System::Drawing::Size(80, 22);
@@ -516,10 +536,10 @@ namespace ProyectoTL {
 			// 
 			// btn_ejeX
 			// 
-			this->btn_ejeX->Location = System::Drawing::Point(150, 775);
+			this->btn_ejeX->Location = System::Drawing::Point(470, 625);
 			this->btn_ejeX->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_ejeX->Name = L"btn_ejeX";
-			this->btn_ejeX->Size = System::Drawing::Size(80, 30);
+			this->btn_ejeX->Size = System::Drawing::Size(150, 40);
 			this->btn_ejeX->TabIndex = 21;
 			this->btn_ejeX->Text = L"En eje X";
 			this->btn_ejeX->UseVisualStyleBackColor = true;
@@ -527,10 +547,10 @@ namespace ProyectoTL {
 			// 
 			// btn_ejeY
 			// 
-			this->btn_ejeY->Location = System::Drawing::Point(240, 775);
+			this->btn_ejeY->Location = System::Drawing::Point(470, 675);
 			this->btn_ejeY->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_ejeY->Name = L"btn_ejeY";
-			this->btn_ejeY->Size = System::Drawing::Size(80, 30);
+			this->btn_ejeY->Size = System::Drawing::Size(150, 40);
 			this->btn_ejeY->TabIndex = 22;
 			this->btn_ejeY->Text = L"En eje Y";
 			this->btn_ejeY->UseVisualStyleBackColor = true;
@@ -538,10 +558,10 @@ namespace ProyectoTL {
 			// 
 			// btn_ejeZ
 			// 
-			this->btn_ejeZ->Location = System::Drawing::Point(330, 775);
+			this->btn_ejeZ->Location = System::Drawing::Point(470, 725);
 			this->btn_ejeZ->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btn_ejeZ->Name = L"btn_ejeZ";
-			this->btn_ejeZ->Size = System::Drawing::Size(80, 30);
+			this->btn_ejeZ->Size = System::Drawing::Size(150, 40);
 			this->btn_ejeZ->TabIndex = 23;
 			this->btn_ejeZ->Text = L"Origen";
 			this->btn_ejeZ->UseVisualStyleBackColor = true;
@@ -550,7 +570,7 @@ namespace ProyectoTL {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(30, 540);
+			this->label5->Location = System::Drawing::Point(30, 548);
 			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(98, 16);
@@ -561,7 +581,7 @@ namespace ProyectoTL {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(30, 710);
+			this->label6->Location = System::Drawing::Point(30, 800);
 			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(77, 16);
@@ -572,7 +592,7 @@ namespace ProyectoTL {
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(30, 780);
+			this->label7->Location = System::Drawing::Point(470, 595);
 			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(99, 16);
@@ -582,7 +602,7 @@ namespace ProyectoTL {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(370, 735);
+			this->label8->Location = System::Drawing::Point(380, 835);
 			this->label8->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(61, 16);
@@ -593,7 +613,7 @@ namespace ProyectoTL {
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(85, 578);
+			this->label9->Location = System::Drawing::Point(110, 603);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(15, 16);
 			this->label9->TabIndex = 28;
@@ -602,7 +622,7 @@ namespace ProyectoTL {
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(225, 578);
+			this->label10->Location = System::Drawing::Point(270, 603);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(16, 16);
 			this->label10->TabIndex = 29;
@@ -611,7 +631,7 @@ namespace ProyectoTL {
 			// label11
 			// 
 			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(225, 613);
+			this->label11->Location = System::Drawing::Point(270, 643);
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(16, 16);
 			this->label11->TabIndex = 31;
@@ -620,7 +640,7 @@ namespace ProyectoTL {
 			// label12
 			// 
 			this->label12->AutoSize = true;
-			this->label12->Location = System::Drawing::Point(85, 613);
+			this->label12->Location = System::Drawing::Point(110, 643);
 			this->label12->Name = L"label12";
 			this->label12->Size = System::Drawing::Size(15, 16);
 			this->label12->TabIndex = 30;
@@ -629,7 +649,7 @@ namespace ProyectoTL {
 			// label13
 			// 
 			this->label13->AutoSize = true;
-			this->label13->Location = System::Drawing::Point(625, 578);
+			this->label13->Location = System::Drawing::Point(270, 683);
 			this->label13->Name = L"label13";
 			this->label13->Size = System::Drawing::Size(16, 16);
 			this->label13->TabIndex = 33;
@@ -638,7 +658,7 @@ namespace ProyectoTL {
 			// label14
 			// 
 			this->label14->AutoSize = true;
-			this->label14->Location = System::Drawing::Point(485, 578);
+			this->label14->Location = System::Drawing::Point(110, 683);
 			this->label14->Name = L"label14";
 			this->label14->Size = System::Drawing::Size(15, 16);
 			this->label14->TabIndex = 32;
@@ -647,7 +667,7 @@ namespace ProyectoTL {
 			// label15
 			// 
 			this->label15->AutoSize = true;
-			this->label15->Location = System::Drawing::Point(485, 613);
+			this->label15->Location = System::Drawing::Point(110, 723);
 			this->label15->Name = L"label15";
 			this->label15->Size = System::Drawing::Size(16, 16);
 			this->label15->TabIndex = 35;
@@ -656,7 +676,7 @@ namespace ProyectoTL {
 			// label16
 			// 
 			this->label16->AutoSize = true;
-			this->label16->Location = System::Drawing::Point(625, 613);
+			this->label16->Location = System::Drawing::Point(270, 723);
 			this->label16->Name = L"label16";
 			this->label16->Size = System::Drawing::Size(15, 16);
 			this->label16->TabIndex = 34;
@@ -665,7 +685,7 @@ namespace ProyectoTL {
 			// label17
 			// 
 			this->label17->AutoSize = true;
-			this->label17->Location = System::Drawing::Point(30, 735);
+			this->label17->Location = System::Drawing::Point(30, 835);
 			this->label17->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label17->Name = L"label17";
 			this->label17->Size = System::Drawing::Size(55, 16);
@@ -675,7 +695,7 @@ namespace ProyectoTL {
 			// label18
 			// 
 			this->label18->AutoSize = true;
-			this->label18->Location = System::Drawing::Point(200, 735);
+			this->label18->Location = System::Drawing::Point(195, 835);
 			this->label18->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label18->Name = L"label18";
 			this->label18->Size = System::Drawing::Size(60, 16);
@@ -684,10 +704,10 @@ namespace ProyectoTL {
 			// 
 			// CambiarColor
 			// 
-			this->CambiarColor->Location = System::Drawing::Point(620, 845);
+			this->CambiarColor->Location = System::Drawing::Point(650, 750);
 			this->CambiarColor->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->CambiarColor->Name = L"CambiarColor";
-			this->CambiarColor->Size = System::Drawing::Size(100, 30);
+			this->CambiarColor->Size = System::Drawing::Size(150, 40);
 			this->CambiarColor->TabIndex = 38;
 			this->CambiarColor->Text = L"Cambiar color";
 			this->CambiarColor->UseVisualStyleBackColor = true;
@@ -696,7 +716,7 @@ namespace ProyectoTL {
 			// label19
 			// 
 			this->label19->AutoSize = true;
-			this->label19->Location = System::Drawing::Point(30, 825);
+			this->label19->Location = System::Drawing::Point(30, 875);
 			this->label19->Name = L"label19";
 			this->label19->Size = System::Drawing::Size(149, 16);
 			this->label19->TabIndex = 39;
@@ -705,7 +725,7 @@ namespace ProyectoTL {
 			// label20
 			// 
 			this->label20->AutoSize = true;
-			this->label20->Location = System::Drawing::Point(190, 850);
+			this->label20->Location = System::Drawing::Point(185, 910);
 			this->label20->Name = L"label20";
 			this->label20->Size = System::Drawing::Size(60, 16);
 			this->label20->TabIndex = 40;
@@ -714,7 +734,7 @@ namespace ProyectoTL {
 			// label21
 			// 
 			this->label21->AutoSize = true;
-			this->label21->Location = System::Drawing::Point(350, 850);
+			this->label21->Location = System::Drawing::Point(360, 910);
 			this->label21->Name = L"label21";
 			this->label21->Size = System::Drawing::Size(61, 16);
 			this->label21->TabIndex = 41;
@@ -723,7 +743,7 @@ namespace ProyectoTL {
 			// label22
 			// 
 			this->label22->AutoSize = true;
-			this->label22->Location = System::Drawing::Point(30, 850);
+			this->label22->Location = System::Drawing::Point(30, 910);
 			this->label22->Name = L"label22";
 			this->label22->Size = System::Drawing::Size(48, 16);
 			this->label22->TabIndex = 42;
@@ -731,30 +751,30 @@ namespace ProyectoTL {
 			// 
 			// txtVEscala
 			// 
-			this->txtVEscala->Location = System::Drawing::Point(100, 848);
+			this->txtVEscala->Location = System::Drawing::Point(90, 908);
 			this->txtVEscala->Name = L"txtVEscala";
 			this->txtVEscala->Size = System::Drawing::Size(70, 22);
 			this->txtVEscala->TabIndex = 43;
 			// 
 			// txtXEscala
 			// 
-			this->txtXEscala->Location = System::Drawing::Point(260, 848);
+			this->txtXEscala->Location = System::Drawing::Point(265, 908);
 			this->txtXEscala->Name = L"txtXEscala";
 			this->txtXEscala->Size = System::Drawing::Size(70, 22);
 			this->txtXEscala->TabIndex = 44;
 			// 
 			// txtYEscala
 			// 
-			this->txtYEscala->Location = System::Drawing::Point(420, 848);
+			this->txtYEscala->Location = System::Drawing::Point(440, 908);
 			this->txtYEscala->Name = L"txtYEscala";
 			this->txtYEscala->Size = System::Drawing::Size(70, 22);
 			this->txtYEscala->TabIndex = 45;
 			// 
 			// btnEscalar
 			// 
-			this->btnEscalar->Location = System::Drawing::Point(510, 845);
+			this->btnEscalar->Location = System::Drawing::Point(535, 905);
 			this->btnEscalar->Name = L"btnEscalar";
-			this->btnEscalar->Size = System::Drawing::Size(90, 30);
+			this->btnEscalar->Size = System::Drawing::Size(130, 38);
 			this->btnEscalar->TabIndex = 46;
 			this->btnEscalar->Text = L"Escalar";
 			this->btnEscalar->UseVisualStyleBackColor = true;
@@ -841,6 +861,107 @@ namespace ProyectoTL {
 				g->FillEllipse(b, p.X - 3, p.Y - 3, 6, 6);
 			}
 		}
+
+
+// ═══════════════════════════════════════════════════════════════
+// MÉTODOS DE ESTILOS MODERNOS
+// ═══════════════════════════════════════════════════════════════
+
+private: void AplicarEstilosModernos()
+{
+	// COLORES MODERNOS
+	Color fondoClaro = Color::FromArgb(248, 249, 250);
+	Color colorPrincipal = Color::FromArgb(0, 123, 255);
+	
+	// FONDO DEL FORMULARIO
+	this->BackColor = fondoClaro;
+	
+	// ESTILO DEL CANVAS
+	pictureBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+	pictureBox1->BackColor = Color::White;
+	
+	// BOTONES PRINCIPALES
+	btn_Dibujar->FlatStyle = FlatStyle::Flat;
+	btn_Dibujar->BackColor = colorPrincipal;
+	btn_Dibujar->ForeColor = Color::White;
+	btn_Dibujar->FlatAppearance->BorderSize = 0;
+	btn_Dibujar->Font = gcnew System::Drawing::Font(L"Segoe UI", 10, FontStyle::Bold);
+	btn_Dibujar->Cursor = System::Windows::Forms::Cursors::Hand;
+	
+	btn_Borrar->FlatStyle = FlatStyle::Flat;
+	btn_Borrar->BackColor = Color::FromArgb(220, 53, 69);
+	btn_Borrar->ForeColor = Color::White;
+	btn_Borrar->FlatAppearance->BorderSize = 0;
+	btn_Borrar->Font = gcnew System::Drawing::Font(L"Segoe UI", 10, FontStyle::Bold);
+	btn_Borrar->Cursor = System::Windows::Forms::Cursors::Hand;
+	
+	btn_demo->FlatStyle = FlatStyle::Flat;
+	btn_demo->BackColor = Color::FromArgb(40, 167, 69);
+	btn_demo->ForeColor = Color::White;
+	btn_demo->FlatAppearance->BorderSize = 0;
+	btn_demo->Font = gcnew System::Drawing::Font(L"Segoe UI", 10, FontStyle::Bold);
+	btn_demo->Cursor = System::Windows::Forms::Cursors::Hand;
+	
+	// BOTONES DE TRANSFORMACIÓN
+	EstilizarBotonSecundario(btn_rotar);
+	EstilizarBotonSecundario(btn_ejeX);
+	EstilizarBotonSecundario(btn_ejeY);
+	EstilizarBotonSecundario(btn_ejeZ);
+	EstilizarBotonSecundario(btnEscalar);
+	EstilizarBotonSecundario(CambiarColor);
+	
+	// CAMPOS DE TEXTO
+	EstilizarCampoTexto(btn_punto1X);
+	EstilizarCampoTexto(btn_punto1Y);
+	EstilizarCampoTexto(btn_punto2X);
+	EstilizarCampoTexto(btn_punto2Y);
+	EstilizarCampoTexto(btn_punto3X);
+	EstilizarCampoTexto(btn_punto3Y);
+	EstilizarCampoTexto(btn_punto4X);
+	EstilizarCampoTexto(btn_punto4Y);
+	EstilizarCampoTexto(caja_Grados);
+	EstilizarCampoTexto(grado_ubicacion1);
+	EstilizarCampoTexto(grado_ubicacion2);
+	EstilizarCampoTexto(txtVEscala);
+	EstilizarCampoTexto(txtXEscala);
+	EstilizarCampoTexto(txtYEscala);
+	
+	// SELECTOR
+	cajaFormas->FlatStyle = FlatStyle::Flat;
+	cajaFormas->BackColor = Color::White;
+	cajaFormas->Font = gcnew System::Drawing::Font(L"Segoe UI", 10);
+	
+	// LABELS DE TÍTULOS
+	label5->Font = gcnew System::Drawing::Font(L"Segoe UI", 11, FontStyle::Bold);
+	label5->BackColor = Color::Transparent;
+	label6->Font = gcnew System::Drawing::Font(L"Segoe UI", 10, FontStyle::Bold);
+	label6->BackColor = Color::Transparent;
+	label7->Font = gcnew System::Drawing::Font(L"Segoe UI", 10, FontStyle::Bold);
+	label7->BackColor = Color::Transparent;
+	label19->Font = gcnew System::Drawing::Font(L"Segoe UI", 10, FontStyle::Bold);
+	label19->BackColor = Color::Transparent;
+}
+
+private: void EstilizarBotonSecundario(Button^ boton)
+{
+	boton->FlatStyle = FlatStyle::Flat;
+	boton->BackColor = Color::FromArgb(108, 117, 125);
+	boton->ForeColor = Color::White;
+	boton->FlatAppearance->BorderSize = 0;
+	boton->Font = gcnew System::Drawing::Font(L"Segoe UI", 9, FontStyle::Bold);
+	boton->Cursor = System::Windows::Forms::Cursors::Hand;
+}
+
+private: void EstilizarCampoTexto(TextBox^ campo)
+{
+	campo->BorderStyle = BorderStyle::FixedSingle;
+	campo->BackColor = Color::White;
+	campo->Font = gcnew System::Drawing::Font(L"Segoe UI", 10);
+}
+
+// ═══════════════════════════════════════════════════════════════
+
+
 	private: System::Void btn_demo_Click(System::Object^ sender, System::EventArgs^ e) {
 		Graphics^ g = pictureBox1->CreateGraphics();
 		Pen^ eje = gcnew Pen(Color::Black, 2);
@@ -877,11 +998,17 @@ namespace ProyectoTL {
 		btn_ejeZ->Enabled = true;
 		CambiarColor->Enabled = true;
 		caja_Grados->Enabled = true;
+		caja_Grados->BackColor = Color::White;
 		grado_ubicacion1->Enabled = true;
+		grado_ubicacion1->BackColor = Color::White;
 		grado_ubicacion2->Enabled = true;
+		grado_ubicacion2->BackColor = Color::White;
 		txtVEscala->Enabled = true;
+		txtVEscala->BackColor = Color::White;
 		txtXEscala->Enabled = true;
+		txtXEscala->BackColor = Color::White;
 		txtYEscala->Enabled = true;
+		txtYEscala->BackColor = Color::White;
 		btnEscalar->Enabled = true;
 
 		// Actualizar el selector de formas para reflejar que es un triangulo
@@ -962,8 +1089,20 @@ namespace ProyectoTL {
 			CambiarColor->Enabled = true; // Cambiar color
 
 			// Habilitar campos de rotacion
+		caja_Grados->BackColor = Color::White;
+
+		grado_ubicacion1->BackColor = Color::White;
+
+		grado_ubicacion2->BackColor = Color::White;
+
 			caja_Grados->Enabled = true;
 			grado_ubicacion1->Enabled = true;
+		txtVEscala->BackColor = Color::White;
+
+		txtXEscala->BackColor = Color::White;
+
+		txtYEscala->BackColor = Color::White;
+
 			grado_ubicacion2->Enabled = true;
 
 			// Habilitar campos y boton de homotecia/escala
@@ -1031,11 +1170,17 @@ private: System::Void cajaFormas_SelectedIndexChanged(System::Object^ sender, Sy
 	{
 		// Habilitar campos basicos de coordenadas
 		btn_punto1X->Enabled = true;
+		btn_punto1X->BackColor = Color::White;
 		btn_punto1Y->Enabled = true;
+		btn_punto1Y->BackColor = Color::White;
 		btn_punto2X->Enabled = true;
+		btn_punto2X->BackColor = Color::White;
 		btn_punto2Y->Enabled = true;
+		btn_punto2Y->BackColor = Color::White;
 		btn_punto3X->Enabled = true;
+		btn_punto3X->BackColor = Color::White;
 		btn_punto3Y->Enabled = true;
+		btn_punto3Y->BackColor = Color::White;
 
 		// NO habilitar campos de rotacion aqui
 		// Se habilitaran solo despues de dibujar la figura
@@ -1055,7 +1200,9 @@ private: System::Void cajaFormas_SelectedIndexChanged(System::Object^ sender, Sy
 		}
 		else if (cajaFormas->SelectedItem->ToString() == "Cuadrilatero") {
 			btn_punto4X->Enabled = true;
+		btn_punto4X->BackColor = Color::White;
 			btn_punto4Y->Enabled = true;
+		btn_punto4Y->BackColor = Color::White;
 		}
 	}
 	else
